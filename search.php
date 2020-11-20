@@ -14,7 +14,7 @@
 
             <br>
 
-            <?php the_excerpt(); ?>       
+            <?php the_excerpt(); ?>
 
         <?php endwhile; ?>
 
