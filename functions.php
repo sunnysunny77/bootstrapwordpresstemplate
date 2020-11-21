@@ -86,3 +86,11 @@ function target_main_category_query_with_conditional_tags($query)
   }
 }
 add_action('pre_get_posts', 'target_main_category_query_with_conditional_tags');
+
+
+add_filter('sp_wp_carousel_post_type_args', 'show_to_editor');
+function show_to_editor( $args ) {
+	unset( $args['show_ui'] );
+	$editor_compatible = array( 'show_ui' => current_user_can( 'edit_others_pages' ) ? true : false );
+	return array_merge( $args, $editor_compatible );
+}
