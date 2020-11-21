@@ -11,48 +11,50 @@
         'p' => $id,
     );
 
-    $products = new WP_Query($args);
+    $the_query = new WP_Query($args); ?>
 
-    if ($products->have_posts()) {
-        while ($products->have_posts()) {
-            $products->the_post();
+    <?php if ($the_query->have_posts()) : ?>
 
-    ?>
-            <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+            <h1> Single blog post</h1>
+        <?php endwhile; ?>
 
-                <div id="prevpost"><?php previous_post_link(); ?></div>
+        <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-                <div id="nextpost"><?php next_post_link(); ?> </div>
+            <div id="prevpost"><?php previous_post_link(); ?></div>
 
-                <a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a>
+            <div id="nextpost"><?php next_post_link(); ?> </div>
 
-                <?php echo get_the_date(); ?>
+            <a href="<?php the_permalink(); ?>"> <h2><?php the_title(); ?></h2> </a>
 
-                <?php the_time(); ?>
+            <?php echo get_the_date(); ?>
 
-                <?php the_author(); ?><br />
+            <?php the_time(); ?>
 
-                <?php if (has_post_thumbnail()) {  ?> <div> <?php the_post_thumbnail(); ?> </div> <?php } ?>
+            <?php the_author(); ?><br />
 
-                <p><?php the_field("bp") ?></p>
+            <?php if (has_post_thumbnail()) {  ?> <div> <?php the_post_thumbnail(); ?> </div> <?php } ?>
 
-                <?php the_category(', ') ?>
+            <p><?php the_field("bp") ?></p>
 
-                <?php the_tags(', ') ?>
+            <?php the_category(', ') ?>
 
-                <?php comments_popup_link(); ?>.
+            <?php the_tags(', ') ?>
 
-                <?php edit_post_link(); ?>
+            <?php comments_popup_link(); ?>.
 
-                <?php comments_template(); ?>
+            <?php edit_post_link(); ?>
 
-        <?php
-        }
-    } else {
-        echo ' No posts';
-    }
-        ?>
+            <?php comments_template(); ?>
 
-            </div>
+        </div>
 
-            <?php get_footer(); ?>
+        <?php wp_reset_postdata(); ?>
+
+    <?php else : ?>
+        <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+    <?php endif; ?>
+
+</div>
+
+<?php get_footer(); ?>

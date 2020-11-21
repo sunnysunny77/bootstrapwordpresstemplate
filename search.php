@@ -2,7 +2,7 @@
 
 <div id="search" class="content-area col-sm-12 col-lg-8 mx-auto">
 
-    <h2><?php the_search_query() ?></h2>
+    <h1><?php the_search_query() ?></h1>
 
     <?php if (have_posts()) : ?>
 
@@ -10,11 +10,11 @@
 
             <?php if (has_post_thumbnail()) {  ?> <div> <?php the_post_thumbnail(); ?> </div> <?php } ?>
 
-            <a href="<?php the_permalink() ?>"> <?php the_title(); ?> </a>
+            <a href="<?php the_permalink() ?>"> <h2><?php the_title(); ?></h2> </a>
 
             <br>
 
-            <?php the_excerpt(); ?>
+            <p><?php the_field("bp") ?></p>
 
         <?php endwhile; ?>
 

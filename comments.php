@@ -3,6 +3,7 @@
   <?php wp_list_comments(); ?>
 
   <?php comment_form(
+
     $args = array(
       'id_form'           => 'commentform',
       'id_submit'         => 'commentsubmit',
@@ -15,6 +16,6 @@
         '</p><div class="alert alert-info">' . allowed_tags() . '</div>'
     )
   );
-  ?>ß
+  ?>
 
 </div>

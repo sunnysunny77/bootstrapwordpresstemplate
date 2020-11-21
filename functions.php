@@ -72,16 +72,18 @@ add_action('admin_menu', 'remove_posts_menu');
 function target_main_category_query_with_conditional_tags($query)
 {
   if (!is_admin() && $query->is_main_query()) {
-    // Not a query for an admin page.
-    // It's the main query for a front end page of your site.
 
     if (is_home()) {
-      // It's the main query for a category archive.
-
-      // Let's change the query for category archives.
       $query->set('post_type', 'blog_posts');
       $query->set('posts_per_page', '1');
     }
+    if (is_search()) {
+      $query->set('post_type', 'blog_posts');
+    }
+    if (is_archive()) {
+      $query->set('post_type', 'blog_posts');
+    }
+   
   }
 }
 add_action('pre_get_posts', 'target_main_category_query_with_conditional_tags');
