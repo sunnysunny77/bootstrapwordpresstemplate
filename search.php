@@ -24,6 +24,8 @@
 
     <?php endif; ?>
 
+    <?php get_search_form(); ?> 
+
 </div>
 
 <?php get_footer(); ?>

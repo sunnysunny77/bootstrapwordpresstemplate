@@ -29,7 +29,7 @@
         <?php comments_popup_link(); ?>.
 
         <?php edit_post_link(); ?>
-           
+		           
       </div> 
 
     <?php endwhile; ?>
@@ -37,8 +37,8 @@
   <?php endif; ?>
 
   <?php wp_pagenavi(); ?>
-
-  <?php dynamic_sidebar("widget1"); ?>
+ 
+	<?php dynamic_sidebar("widget1"); ?>
 
 </div>
 

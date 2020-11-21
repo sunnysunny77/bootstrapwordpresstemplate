@@ -77,9 +77,7 @@ function target_main_category_query_with_conditional_tags($query)
       $query->set('post_type', 'blog_posts');
       $query->set('posts_per_page', '1');
     }
-    if (is_search()) {
-      $query->set('post_type', 'blog_posts');
-    }
+  
     if (is_archive()) {
       $query->set('post_type', 'blog_posts');
     }
