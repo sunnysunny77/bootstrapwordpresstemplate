@@ -12,11 +12,15 @@
 
 			<p><?php the_field("bp") ?></p>
 
-			<?php echo get_the_date( ); ?> <!-- Date published -->
-			<?php the_time(); ?>  <!-- Time published -->
-			<?php  the_author(); ?><br /> <!-- Author of the post -->
+			<?php echo get_the_date(); ?>
+
+			<?php the_time(); ?>
+
+			<?php the_author(); ?><br />
 
 			<?php the_excerpt(); ?>
+
+			<?php comments_popup_link(); ?>.
 
 		<?php endwhile; ?>
 
