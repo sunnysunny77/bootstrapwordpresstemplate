@@ -25,7 +25,7 @@
 
             <div id="nextpost"><?php next_post_link(); ?> </div>
 
-            <a href="<?php the_permalink(); ?>"> <h2><?php the_title(); ?></h2> </a>
+            <h2><?php the_title(); ?></h2> 
 
             <?php echo get_the_date(); ?>
 
