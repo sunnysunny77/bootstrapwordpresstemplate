@@ -24,7 +24,7 @@
 
     <?php endif; ?>
 
-    <?php get_search_form(); ?> 
+    <?php echo do_shortcode( '[ivory-search id="200" title="Default Search Form"]' ); ?>
 
 </div>
 
