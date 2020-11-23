@@ -94,3 +94,12 @@ function show_to_editor( $args ) {
 	$editor_compatible = array( 'show_ui' => current_user_can( 'edit_others_pages' ) ? true : false );
 	return array_merge( $args, $editor_compatible );
 }
+
+add_action( 'admin_init', 'add_gf_cap' );
+
+add_filter( 'gform_submit_button', 'form_submit_button', 10, 2 );
+function form_submit_button( $button, $form ) {
+    return "<button class='btn-dark' id='gform_submit_button_{$form['id']}'><span>Submit</span></button>";
+}
+
+
