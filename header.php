@@ -50,4 +50,4 @@
 
   </header>
 
-  <main>
+  <main class="clearfix">
