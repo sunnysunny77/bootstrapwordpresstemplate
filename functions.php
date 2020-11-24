@@ -1,4 +1,5 @@
 <?php
+
 function boot_scripts()
 {
 
@@ -39,6 +40,7 @@ add_theme_support('widget-customizer');
 
 function register_my_custom_sidebars()
 {
+
   register_sidebar(
     array(
       'name' => 'widget',
@@ -49,6 +51,7 @@ function register_my_custom_sidebars()
       'after_title' => '</h3>',
     )
   );
+
   register_sidebar(
     array(
       'name' => 'widget1',
@@ -64,45 +67,47 @@ add_action('widgets_init', 'register_my_custom_sidebars');
 
 function remove_posts_menu()
 {
+
   remove_menu_page('edit.php');
 }
 add_action('admin_menu', 'remove_posts_menu');
 
-
 function target_main_category_query_with_conditional_tags($query)
 {
+
   if (!is_admin() && $query->is_main_query()) {
 
     if (is_home()) {
       $query->set('post_type', 'blog_posts');
       $query->set('posts_per_page', '1');
     }
-  
+
     if (is_archive()) {
       $query->set('post_type', 'blog_posts');
       $query->set('posts_per_page', '3');
     }
-   
   }
 }
 add_action('pre_get_posts', 'target_main_category_query_with_conditional_tags');
 
-
 add_filter('sp_wp_carousel_post_type_args', 'show_to_editor');
-function show_to_editor( $args ) {
-	unset( $args['show_ui'] );
-	$editor_compatible = array( 'show_ui' => current_user_can( 'edit_others_pages' ) ? true : false );
-	return array_merge( $args, $editor_compatible );
+
+function show_to_editor($args)
+{
+
+  unset($args['show_ui']);
+  $editor_compatible = array('show_ui' => current_user_can('edit_others_pages') ? true : false);
+  return array_merge($args, $editor_compatible);
 }
 
-add_action( 'admin_init', 'add_gf_cap' );
+add_action('admin_init', 'add_gf_cap');
 
-add_filter( 'gform_submit_button', 'form_submit_button', 10, 2 );
-function form_submit_button( $button, $form ) {
-    return "<button class='btn-dark' id='gform_submit_button_{$form['id']}'><span>Submit</span></button>";
+add_filter('gform_submit_button', 'form_submit_button', 10, 2);
+
+function form_submit_button($button, $form)
+{
+  return "<button class='btn-dark' id='gform_submit_button_{$form['id']}'><span>Submit</span></button>";
 }
-
-
 
 /**
  * Gravity Forms Bootstrap Styles
@@ -119,35 +124,34 @@ function form_submit_button( $button, $form ) {
  * @return string Modified field content
  */
 add_filter("gform_field_content", "bootstrap_styles_for_gravityforms_fields", 10, 5);
-function bootstrap_styles_for_gravityforms_fields($content, $field, $value, $lead_id, $form_id){
 
-	// Currently only applies to most common field types, but could be expanded.
+function bootstrap_styles_for_gravityforms_fields($content, $field, $value, $lead_id, $form_id)
+{
 
-	if($field["type"] != 'hidden' && $field["type"] != 'list' && $field["type"] != 'multiselect' && $field["type"] != 'checkbox' && $field["type"] != 'fileupload' && $field["type"] != 'date' && $field["type"] != 'html' && $field["type"] != 'address') {
-		$content = str_replace('class=\'medium', 'class=\'form-control medium', $content);
-	}
+  // Currently only applies to most common field types, but could be expanded.
 
-	if($field["type"] == 'name' || $field["type"] == 'address') {
-		$content = str_replace('<input ', '<input class=\'form-control\' ', $content);
-	}
+  if ($field["type"] != 'hidden' && $field["type"] != 'list' && $field["type"] != 'multiselect' && $field["type"] != 'checkbox' && $field["type"] != 'fileupload' && $field["type"] != 'date' && $field["type"] != 'html' && $field["type"] != 'address') {
+    $content = str_replace('class=\'medium', 'class=\'form-control medium', $content);
+  }
 
-	if($field["type"] == 'textarea') {
-		$content = str_replace('class=\'textarea', 'class=\'form-control textarea', $content);
-	}
+  if ($field["type"] == 'name' || $field["type"] == 'address') {
+    $content = str_replace('<input ', '<input class=\'form-control\' ', $content);
+  }
 
-	if($field["type"] == 'checkbox') {
-		$content = str_replace('li class=\'', 'li class=\'form-check ', $content);
-		$content = str_replace('<input ', '<input style=\'margin-top:-2px\' ', $content);
-		$content = str_replace('<label ', '<label class=\'form-check-label\' ', $content);
-	}
+  if ($field["type"] == 'textarea') {
+    $content = str_replace('class=\'textarea', 'class=\'form-control textarea', $content);
+  }
 
-	if($field["type"] == 'radio') {
-		$content = str_replace('li class=\'', 'li class=\'radio ', $content);
-		$content = str_replace('<input ', '<input style=\'margin-left:1px;\' ', $content);
-	}
+  if ($field["type"] == 'checkbox') {
+    $content = str_replace('li class=\'', 'li class=\'form-check ', $content);
+    $content = str_replace('<input ', '<input style=\'margin-top:-2px\' ', $content);
+    $content = str_replace('<label ', '<label class=\'form-check-label\' ', $content);
+  }
 
-	return $content;
+  if ($field["type"] == 'radio') {
+    $content = str_replace('li class=\'', 'li class=\'radio ', $content);
+    $content = str_replace('<input ', '<input style=\'margin-left:1px;\' ', $content);
+  }
 
+  return $content;
 } // End bootstrap_styles_for_gravityforms_fields()
-
-
