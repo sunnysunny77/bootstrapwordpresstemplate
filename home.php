@@ -20,7 +20,7 @@
 
         <?php if (has_post_thumbnail()) {  ?> <div> <?php the_post_thumbnail(); ?> </div> <?php } ?>
 
-        <p><?php the_field("bp") ?></p>
+        <?php the_field("") ?>
 
         <?php the_category(', ') ?>
 

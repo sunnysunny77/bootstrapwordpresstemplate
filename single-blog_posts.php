@@ -16,7 +16,7 @@
     <?php if ($the_query->have_posts()) : ?>
 
         <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-            <h1> Single blog post</h1>
+       
         <?php endwhile; ?>
 
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -25,7 +25,7 @@
 
             <div id="nextpost"><?php next_post_link(); ?> </div>
 
-            <h2><?php the_title(); ?></h2> 
+            <h1><?php the_title(); ?></h1> 
 
             <?php echo get_the_date(); ?>
 
@@ -35,7 +35,7 @@
 
             <?php if (has_post_thumbnail()) {  ?> <div> <?php the_post_thumbnail(); ?> </div> <?php } ?>
 
-            <p><?php the_field("bp") ?></p>
+            <?php the_field("") ?>
 
             <?php the_category(', ') ?>
 

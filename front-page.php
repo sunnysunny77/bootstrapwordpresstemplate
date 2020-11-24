@@ -4,7 +4,7 @@
 
 	<h1><?php the_title(); ?></h1>
 
-	<p class="text-center"><?php the_field("home_p_text"); ?></p>
+	<p class="text-center"><?php the_field(""); ?></p>
 
 	<?php dynamic_sidebar("widget"); ?>
 

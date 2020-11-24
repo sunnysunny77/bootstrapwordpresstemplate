@@ -2,7 +2,7 @@
 
 <div id="search" class="content-area col-sm-12 col-lg-8 mx-auto">
 
-    <h1><?php the_search_query() ?></h1>
+    <h1>Search: &nbsp; <?php the_search_query() ?></h1>
 
     <?php if (have_posts()) : ?>
 
@@ -14,13 +14,13 @@
 
             <br>
 
-            <p><?php the_field("bp") ?></p>
+            <?php the_field("") ?>
 
         <?php endwhile; ?>
 
     <?php else : ?>
 
-        <p><?php echo __('No results found for'); ?> &nbsp; <?php echo get_search_query(); ?></p>
+        <p><?php echo __('No results found for:'); ?> &nbsp; <?php echo get_search_query(); ?></p>
 
     <?php endif; ?>
 
