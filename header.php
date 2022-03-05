@@ -13,7 +13,7 @@
 
 <body>
 
-    <a class="hide" href="#main" accesskey="S"> Skip navigation </a>
+    <a href="#main" accesskey="S"> Skip navigation </a>
 
     <header>
 

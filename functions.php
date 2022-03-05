@@ -38,13 +38,15 @@ add_action('after_setup_theme', 'boot_setup');
 function foundation_scripts()
 {
 
+    wp_deregister_script('jquery');
 
-    wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery.js');
- 
-    wp_enqueue_script('popper', get_template_directory_uri() . '/js/popper-js.js');
- 
-    wp_enqueue_script('bootstrap_js', get_template_directory_uri() . '/js/bootstrap.min.js');
 
+    wp_register_script('jquery', get_template_directory_uri() . '/js/bs/jquery.js', '', '', true);
+
+    wp_register_script('popper', get_template_directory_uri() . '/js/bs/popperjs.js', '', '', true);
+   
+    wp_register_script('bootstrap_js', get_template_directory_uri() . '/js/bs/bootstrap.min.js', '', '', true);
+   
     //theme styles
     if (is_front_page()) {
         wp_enqueue_style('home-css', get_template_directory_uri() . '/assets/css/home.css');
