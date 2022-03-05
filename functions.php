@@ -28,7 +28,7 @@ if (!function_exists('boot_setup')) {
 
         // add_theme_support('automatic-feed-links');
 
-        // add_theme_support('post-thumbnails');
+        add_theme_support('post-thumbnails');
 
         require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
     }

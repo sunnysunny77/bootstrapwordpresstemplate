@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/sunnysunny77/bsv3/issues"
   },
-  "homepage": "https://github.com/sunnysunny77/bsv3",
+  "homepage": "https://github.com/sunnysunny77/bsv3#readme",
   "dependencies": {
     "sass": "^1.34.0"
   }

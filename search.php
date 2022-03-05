@@ -4,11 +4,11 @@
 
         <h1 class="text-md-end m-5"> Search: &nbsp; <?php the_search_query() ?></h1>
 
-        <?php if (have_posts()) : ?>
+        <?php if (have_posts()) { ?>
 
-            <?php while (have_posts()) : the_post(); ?>
+            <?php while (have_posts()) { the_post(); ?>
 
-                <?php if (has_post_thumbnail()) {  ?> <div> <?php the_post_thumbnail(); ?> </div> <?php } ?>
+                <?php if (has_post_thumbnail()) {  echo '<div role="img" aria-label="post_thumbnail" style="background-image: url(' . get_the_post_thumbnail_url() . ');"></div>'; } ?>
 
                 <h2 class="text-md-end m-5"> 
                     <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
@@ -22,17 +22,13 @@
 
                 <?php comments_popup_link(); ?>
 
-                <br>
-                <br>
-                <br>
+            <?php } ?>
 
-            <?php endwhile; ?>
+        <?php } else { ?>
 
-        <?php else : ?>
+            <p><?php echo 'No results found for:'; ?> &nbsp; <?php echo get_search_query(); ?></p>
 
-            <p><?php echo __('No results found for:'); ?> &nbsp; <?php echo get_search_query(); ?></p>
-
-        <?php endif; ?>
+        <?php } ?>
 
         <?php get_search_form(); ?>
 

@@ -2,15 +2,14 @@
 
   <main id="main" class="ps-3 pe-3">
 
-    <?php if (have_posts()) : ?>
+    <?php if (have_posts()) { ?>
 
-      <?php while (have_posts()) : the_post(); ?>
+      <?php while (have_posts()) { the_post(); ?>
 
       <?php
         $classes = [
           'd-flex',
-          'col-sm-12',
-          'col-md-6',
+          'container',
           'mb-5',
           'align-items-sm-center',
           'align-items-md-start',
@@ -42,9 +41,9 @@
           <?php edit_post_link(); ?>
 
           <?php the_post_navigation(array(
-            'prev_text'                  => __('← %title'),
-            'next_text'                  => __('→ %title'),
-            'screen_reader_text' => __('Continue Reading'),
+            'prev_text' => '← %title',
+            'next_text' => '→ %title',
+            'screen_reader_text' => 'Continue Reading',
           )); ?>
 
           <p>
@@ -68,9 +67,9 @@
 
         </section>
 
-      <?php endwhile; ?>
+      <?php } ?>
 
-    <?php endif; ?>
+    <?php } ?>
 
   </main>
 
