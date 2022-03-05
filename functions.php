@@ -35,17 +35,15 @@ if (!function_exists('boot_setup')) {
 }
 add_action('after_setup_theme', 'boot_setup');
 
-function foundation_scripts()
+function boot_scripts()
 {
 
     wp_deregister_script('jquery');
-
 
     wp_enqueue_script('jquery', get_template_directory_uri() . '/js/bs/jquery.js', '', '', true);
 
     wp_enqueue_script('bootstrap_js', get_template_directory_uri() . '/js/bs/bootstrap.bundle.min.js', '', '', true);
    
-    //theme styles
     if (is_front_page()) {
         wp_enqueue_style('home-css', get_template_directory_uri() . '/assets/css/home.css');
     }  else if (is_home()) {
@@ -60,7 +58,7 @@ function foundation_scripts()
         wp_enqueue_style('notfound-css', get_template_directory_uri() . '/assets/css/notfound.css');
     }
 }
-add_action('wp_enqueue_scripts', 'foundation_scripts');
+add_action('wp_enqueue_scripts', 'boot_scripts');
 
 function boot_custom_sidebars()
 {
@@ -70,8 +68,8 @@ function boot_custom_sidebars()
             'id' => 'widget_one',
             'before_widget' => '<li id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</li>',
-			'before_title'  => '<h2 class="widgettitle">',
-			'after_title'   => '</h2>',
+			'before_title'  => '<h3 class="widgettitle">',
+			'after_title'   => '</h3>',
         )
     );
 }
@@ -82,7 +80,7 @@ function boot_post_limits($query)
     if (!is_admin() && $query->is_main_query()) {
 
         if (is_home()) {
-            $query->set('posts_per_page', '1');
+            $query->set('posts_per_page', '3');
         }
     }
 }
