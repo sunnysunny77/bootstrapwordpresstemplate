@@ -1,56 +1,56 @@
 <?php get_header() ?>
 
-  <?php if (have_posts()) : ?>
+<?php if (have_posts()) : ?>
 
-    <?php while (have_posts()) : the_post(); ?>
+  <?php while (have_posts()) : the_post(); ?>
 
-      <?php
-      $classes = [
-        'content-area',
-        'col-sm-12 ',
-        'col-lg-8',
-        'mx-auto'
-      ];
-      ?>
+    <?php
+    $classes = [
+      'content-area',
+      'col-sm-12 ',
+      'col-lg-8',
+      'mx-auto'
+    ];
+    ?>
 
-      <article <?php post_class($classes); ?> id="post-<?php the_ID(); ?>">
+    <article <?php post_class($classes); ?> id="post-<?php the_ID(); ?>">
 
-        <h1> <a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a> </h1>
+      <h1> <a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a> </h1>
 
-        <p>
-          By:&nbsp;
-          <?php the_author(); ?>
-          ,
-          <?php echo get_the_date(); ?>
-        </p>
+      <p>
+        By:&nbsp;
+        <?php the_author(); ?>
+        ,
+        <?php echo get_the_date(); ?>
+      </p>
 
-        <?php if (has_post_thumbnail()) {  ?> <div> <?php the_post_thumbnail(); ?> </div> <?php } ?>
+      <?php if (has_post_thumbnail()) {  ?> <div> <?php the_post_thumbnail(); ?> </div> <?php } ?>
 
-        <?php the_content() ?>
+      <?php the_content() ?>
 
-        <?php the_category();  ?>
+      <?php the_category();  ?>
 
-        <p>
+      <p>
 
-          <?php the_tags(); ?>
+        <?php the_tags(); ?>
 
-        </p>
+      </p>
 
-        <p>
+      <p>
 
-          Comments:
+        Comments:
 
-          <?php comments_popup_link(); ?>
+        <?php comments_popup_link(); ?>
 
-        </p>
+      </p>
 
 
-        <?php edit_post_link(); ?>
+      <?php edit_post_link(); ?>
 
-      </article>
+    </article>
 
-    <?php endwhile; ?>
+  <?php endwhile; ?>
 
-  <?php endif; ?>
+<?php endif; ?>
 
 <?php get_footer(); ?>

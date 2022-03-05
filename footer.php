@@ -1,6 +1,6 @@
     </main>
 
-    <footer >
+    <footer class="d-flex justify-content-between">
 
       <?php wp_nav_menu(
         array(
@@ -11,13 +11,13 @@
       );?>
           
 
-      <ul class="col-sm-7">
+      <ul class="col-sm-7 text-right">
 
         <li>&copy;</li>
         <?php dynamic_sidebar("widget_one"); ?>
 
 	    </ul>
-
+  
     </footer>
 
     <?php wp_footer(); ?>

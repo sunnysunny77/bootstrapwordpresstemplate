@@ -13,20 +13,13 @@
 
 <body>
 
-    <a href="#main" accesskey="S"> Skip navigation </a>
+    <a href="#main" class="d-none" accesskey="S"> Skip navigation </a>
 
     <header>
 
-        <nav class="navbar navbar-expand-md navbar-light">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="">
 
-            <div class="container">
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="<?php esc_attr_e('Toggle navigation', 'your-theme-slug'); ?>">
-
-                    <span class="navbar-toggler-icon"></span>
-
-                </button>
-
+            <div class="container-fluid">
 
                 <?php
                 if (function_exists('the_custom_logo')) {
@@ -34,15 +27,19 @@
                 }
                 ?>
 
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
                 <?php wp_nav_menu(
 
                     array(
                         'theme_location'    => 'main-nav',
                         'depth'             => 2,
                         'container'         => 'div',
-                        'container_class'   => 'collapse navbar-collapse justify-content-end mr-5',
-                        'container_id'      => 'bs-example-navbar-collapse-1',
-                        'menu_class'        => 'nav navbar-nav',
+                        'container_class'   => 'collapse navbar-collapse',
+                        'container_id'      => 'main-nav',
+                        'menu_class'        => 'nav-item',
                         'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
                         'walker'            => new WP_Bootstrap_Navwalker(),
                     )
@@ -50,7 +47,7 @@
                 ?>
 
             </div>
-
+            
         </nav>
 
     </header>
