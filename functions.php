@@ -39,6 +39,12 @@ function foundation_scripts()
 {
 
 
+    wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery.js');
+ 
+    wp_enqueue_script('popper', get_template_directory_uri() . '/js/popper-js.js');
+ 
+    wp_enqueue_script('bootstrap_js', get_template_directory_uri() . '/js/bootstrap.min.js');
+
     //theme styles
     if (is_front_page()) {
         wp_enqueue_style('home-css', get_template_directory_uri() . '/assets/css/home.css');
