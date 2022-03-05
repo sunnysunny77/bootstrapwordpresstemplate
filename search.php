@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
-<h1>Search: &nbsp; <?php the_search_query() ?></h1>
+<main id="main" class="ms-3 me-3">
+
+<h1 class="tex-sm-start text-md-end m-5"> Search: &nbsp; <?php the_search_query() ?></h1>
 
 <?php if (have_posts()) : ?>
 
@@ -8,7 +10,7 @@
 
         <?php if (has_post_thumbnail()) {  ?> <div> <?php the_post_thumbnail(); ?> </div> <?php } ?>
 
-        <h2>
+        <h2 class="tex-sm-start text-md-end m-5"> 
             <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
         </h2>
 
@@ -33,5 +35,7 @@
 <?php endif; ?>
 
 <?php get_search_form(); ?>
+
+</main>
 
 <?php get_footer(); ?>

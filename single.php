@@ -1,25 +1,27 @@
 <?php get_header() ?>
 
+<main id="main" class="ms-3 me-3">
+
   <?php if (have_posts()) : ?>
 
     <?php while (have_posts()) : the_post(); ?>
 
-      <?php
+    <?php
       $classes = [
-        'content-area',
-        'col-sm-12 ',
-        'col-lg-8',
-        'mx-auto'
+        'd-flex',
+        'col-sm-12',
+        'col-md-6',
+        'mb-5',
+        'align-items-sm-center',
+        'align-items-md-start',
+        'mx-auto',
+        'flex-column'
       ];
       ?>
 
       <section id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
 
-        <h1>
-          <a href="<?php the_permalink(); ?>">
-            <?php the_title(); ?>
-          </a>
-        </h1>
+        <h1 class="tex-sm-start text-md-end m-5"><?php the_title(); ?></h1>
 
         <?php echo get_the_date(); ?>
 
@@ -51,7 +53,7 @@
           ,
           <?php echo get_the_date(); ?>
         </p>
-        
+
         <?php the_category();  ?>
 
         <p>
@@ -63,11 +65,13 @@
         <?php if (comments_open() || get_comments_number()) {
           comments_template();
         } ?>
-        
+
       </section>
 
     <?php endwhile; ?>
 
   <?php endif; ?>
+
+</main>
 
 <?php get_footer(); ?>

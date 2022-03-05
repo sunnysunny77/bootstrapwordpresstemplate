@@ -39,7 +39,7 @@
                         'container'         => 'div',
                         'container_class'   => 'collapse navbar-collapse',
                         'container_id'      => 'main-nav',
-                        'menu_class'        => 'nav-item',
+                        'menu_class'        => 'navbar-nav text-center  ms-auto',
                         'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
                         'walker'            => new WP_Bootstrap_Navwalker(),
                     )
@@ -51,5 +51,3 @@
         </nav>
 
     </header>
-
-    <main id="main">

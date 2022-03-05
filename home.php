@@ -1,56 +1,66 @@
 <?php get_header() ?>
 
-<?php if (have_posts()) : ?>
+<main id="main" class="ms-3 me-3">
 
-  <?php while (have_posts()) : the_post(); ?>
+  <h1 class="tex-sm-start text-md-end m-5"> <?php echo get_bloginfo(); ?> </h1>
 
-    <?php
-    $classes = [
-      'content-area',
-      'col-sm-12 ',
-      'col-lg-8',
-      'mx-auto'
-    ];
-    ?>
+  <?php if (have_posts()) : ?>
 
-    <article <?php post_class($classes); ?> id="post-<?php the_ID(); ?>">
+    <?php while (have_posts()) : the_post(); ?>
 
-      <h1> <a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a> </h1>
+      <?php
+      $classes = [
+        'd-flex',
+        'col-sm-12',
+        'col-md-6',
+        'mb-5',
+        'align-items-sm-center',
+        'align-items-md-start',
+        'mx-auto',
+        'flex-column'
+      ];
+      ?>
 
-      <p>
-        By:&nbsp;
-        <?php the_author(); ?>
-        ,
-        <?php echo get_the_date(); ?>
-      </p>
+      <article <?php post_class($classes); ?> id="post-<?php the_ID(); ?>">
 
-      <?php if (has_post_thumbnail()) {  ?> <div> <?php the_post_thumbnail(); ?> </div> <?php } ?>
+        <h2 class="tex-sm-start text-md-end m-5"> <a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a> </h2>
 
-      <?php the_content() ?>
+        <p>
+          By:&nbsp;
+          <?php the_author(); ?>
+          ,
+          <?php echo get_the_date(); ?>
+        </p>
 
-      <?php the_category();  ?>
+        <?php if (has_post_thumbnail()) {  ?> <div> <?php the_post_thumbnail(); ?> </div> <?php } ?>
 
-      <p>
+        <?php the_content() ?>
 
-        <?php the_tags(); ?>
+        <?php the_category();  ?>
 
-      </p>
+        <p>
 
-      <p>
+          <?php the_tags(); ?>
 
-        Comments:
+        </p>
 
-        <?php comments_popup_link(); ?>
+        <p>
 
-      </p>
+          Comments:
+
+          <?php comments_popup_link(); ?>
+
+        </p>
 
 
-      <?php edit_post_link(); ?>
+        <?php edit_post_link(); ?>
 
-    </article>
+      </article>
 
-  <?php endwhile; ?>
+    <?php endwhile; ?>
 
-<?php endif; ?>
+  <?php endif; ?>
+
+</main>
 
 <?php get_footer(); ?>
