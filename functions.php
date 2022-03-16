@@ -39,6 +39,8 @@ function boot_scripts()
 {
 
     wp_deregister_script('jquery');
+    
+    wp_enqueue_style('home-css', get_template_directory_uri() . '/assets/css/bootstrap.min.css');
 
     wp_enqueue_script('jquery', get_template_directory_uri() . '/js/bs/jquery.js', '', '', true);
 
