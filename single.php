@@ -55,11 +55,15 @@
 
           <?php the_category();  ?>
 
+          <?php if (the_tags()) { ?>
+			
           <p>
 
             <?php the_tags(); ?>
 
           </p>
+
+          <?php } ?>
 
           <?php if (comments_open() || get_comments_number()) {
             comments_template();
