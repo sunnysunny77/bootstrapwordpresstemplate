@@ -16,7 +16,7 @@ if (!function_exists('boot_setup')) {
 
         add_theme_support('widget-customizer');
 
-        add_theme_support('custom-logo', array('height' => 100, 'width' => 100, 'header-text' => array('site-title', 'site-description')));
+        add_theme_support('custom-logo', array('height' => 100, 'width' => 100,  'unlink-homepage-logo' => true,  'header-text' => array('site-title', 'site-description')));
 
         add_theme_support('title-tag');
 
@@ -39,12 +39,15 @@ function boot_scripts()
 {
 
     wp_deregister_script('jquery');
+
+    wp_enqueue_script('jquery', get_template_directory_uri() . '/js/bs/jquery.js', '', '', false);
+
+    wp_enqueue_script('bootstrap_js', get_template_directory_uri() . '/js/bs/bootstrap.bundle.min.js',  array( 'jquery' ), '', true);
+
+    wp_enqueue_script('jquery-form','', array( 'jquery' ), '', true);
     
     wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/assets/css/bootstrap.min.css');
-
-    wp_enqueue_script('jquery', get_template_directory_uri() . '/js/bs/jquery.js', '', '', true);
-
-    wp_enqueue_script('bootstrap_js', get_template_directory_uri() . '/js/bs/bootstrap.bundle.min.js', '', '', true);
+   
    
     if (is_front_page()) {
         wp_enqueue_style('home-css', get_template_directory_uri() . '/assets/css/home.css');
@@ -95,9 +98,103 @@ function boot_session() {
 }
 add_action( 'init', 'boot_session' );
 
+/*
+
+function boot_submit_form()
+{
+ 
+   require_once(get_template_directory() . '/'); 
+    
+    =
+
+    <form class="grid-x align-center" method="post" id="submit_form">   
+        <input type="hidden" name="action" value="submit_form" >  
+    </form>
+    
+   
+  
+    exit();
+}
+add_action('wp_ajax_submit_form', "boot_submit_form");
+add_action('wp_ajax_nopriv_submit_form', 'boot_submit_form');
+
+function boot_cptui_register_my_cpts()
+{
+
+    $labels = [
+        "name" => __("", "custom-post-type-ui"),
+        "singular_name" => __("", "custom-post-type-ui"),
+    ];
+
+    $args = [
+        "label" => __("", "custom-post-type-ui"),
+        "labels" => $labels,
+        "description" => "",
+        "public" => true,
+        "publicly_queryable" => true,
+        "show_ui" => true,
+        "show_in_rest" => true,
+        "rest_base" => "",
+        "rest_controller_class" => "WP_REST_Posts_Controller",
+        "has_archive" => false,
+        "show_in_menu" => true,
+        "show_in_nav_menus" => true,
+        "delete_with_user" => false,
+        "exclude_from_search" => false,
+        "capability_type" => "post",
+        "map_meta_cap" => true,
+        "hierarchical" => false,
+        "can_export" => false,
+        "rewrite" => ["slug" => "", "with_front" => true],
+        "query_var" => true,
+        "supports" => ["title"],
+        "show_in_graphql" => false,
+    ];
+
+    register_post_type("products", $args);
+}
+
+add_action('init', 'boot_cptui_register_my_cpts');
+
+*/
 
 function boot_on_theme_activation()
 {
+
+    function foundation_post_meta($id, $key, $val)
+    {
+        add_post_meta($id, $key, $val, true);
+    }
+
+    /*
+       $ = [ '' => [ , ],;
+
+    if (get_post_type_object("")) {
+        foreach ($ as $x => $) {
+            $page = array(
+                'post_type'      => '',
+                'post_status'    => 'publish',
+                'post_title' =>  $x,
+            );
+            $id = wp_insert_post($page);
+           foundation_post_meta($id, '', '');
+        }
+    }
+
+     if (!get_page_template_slug(256)) {
+        $page = array(
+            'import_id'         =>  256,
+            'post_title'     => '',
+            'post_type'      => 'page',
+            'post_name'      => '',
+            'post_status'    => 'publish',
+            'page_template' => 'page-.php',
+        );
+        $id = wp_insert_post($page);
+        // foundation_post_meta($id, '', '');
+    }
+
+    */
 
     if (!get_option('page_on_front')) {
         $page = array(
@@ -106,9 +203,10 @@ function boot_on_theme_activation()
             'post_name'      => 'Home',
             'post_status'    => 'publish',
         );
-        wp_insert_post($page);
-        update_option('page_on_front', get_page_by_title('Home')->ID);
+        $id = wp_insert_post($page);
+        update_option('page_on_front', $id);
         update_option('show_on_front', 'page');
+        // foundation_post_meta($id, '', '');
     }
 
     if (!get_option('page_for_posts')) {
@@ -118,8 +216,8 @@ function boot_on_theme_activation()
             'post_name'      => 'Posts',
             'post_status'    => 'publish',
         );
-        wp_insert_post($page);
-        update_option('page_for_posts', get_page_by_title('Posts')->ID);
+        $id = wp_insert_post($page);
+        update_option('page_for_posts', $id);
     }
 
 	update_option( 'uploads_use_yearmonth_folders', 0 );
