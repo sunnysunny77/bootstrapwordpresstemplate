@@ -43,11 +43,10 @@ function boot_scripts()
     wp_enqueue_script('jquery', get_template_directory_uri() . '/js/bs/jquery.js', '', '', false);
 
     wp_enqueue_script('bootstrap_js', get_template_directory_uri() . '/js/bs/bootstrap.bundle.min.js',  array( 'jquery' ), '', true);
-
-    wp_enqueue_script('jquery-form','', array( 'jquery' ), '', true);
     
     wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/assets/css/bootstrap.min.css');
-   
+
+    wp_enqueue_script('jquery-form','', array( 'jquery' ), '', true); 
    
     if (is_front_page()) {
         wp_enqueue_style('home-css', get_template_directory_uri() . '/assets/css/home.css');
