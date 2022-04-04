@@ -50,6 +50,12 @@ function boot_scripts()
    
     if (is_front_page()) {
         wp_enqueue_style('home-css', get_template_directory_uri() . '/assets/css/home.css');
+        /*  wp_enqueue_script('form-js', get_template_directory_uri() . '/js/form.js', array( 'jquery' ), '', true);
+        wp_localize_script('form-js', 'frontend_ajax_object',
+        array( 
+            'ajaxurl' => admin_url( 'admin-ajax.php' ),
+            'data_var_1' => '',
+        )*/
     }  else if (is_home()) {
         wp_enqueue_style('blog-css', get_template_directory_uri() . '/assets/css/blog.css');
     } else if (is_single()) {
