@@ -1,14 +1,23 @@
 {
-  "name": "bootstrap",
+  "name": "bsv3",
+  "type": "module",
   "version": "1.0.0",
-  "description": "bootstrap wordpress theme",
+  "description": "bsv3",
+  "main": "./js/app.js",
   "scripts": {
-    "build": "node ./node_modules/sass/sass.js ./assets/scss:./assets/css",
-    "watch": "node ./node_modules/sass/sass.js ./assets/scss:./assets/css -w"
+    "watch-css": "sass --embed-sources ./scss/app.scss:./assets/css/app.min.css --style compressed -w",
+    "build-css": "sass --embed-sources ./scss/app.scss:./assets/css/app.min.css --style compressed",
+    "production-css": "sass ./scss/app.scss:./site/css/app.min.css --style compressed --no-source-map",
+    "watch-js": "rollup -c ./rollup.config-watch.mjs -w --sourcemap",
+    "build-js": "rollup -c ./rollup.config.mjs --sourcemap",
+    "production-js": "rollup -c ./rollup.config.mjs",
+    "watch": "concurrently \"npm:watch-css\" \"npm:watch-js\"",
+    "build": "concurrently \"npm:build-css\" \"npm:build-js\"",
+    "production": "concurrently \"npm:production-css\" \"npm:production-js\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sunnysunny77/bsv3"
+    "url": "git+https://github.com/sunnysunny77/bsv3.git"
   },
   "author": "D.C",
   "license": "ISC",
@@ -16,7 +25,19 @@
     "url": "https://github.com/sunnysunny77/bsv3/issues"
   },
   "homepage": "https://github.com/sunnysunny77/bsv3#readme",
-  "dependencies": {
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "latest",
+    "@rollup/plugin-babel": "latest",
+    "@rollup/plugin-commonjs": "latest",
+    "@rollup/plugin-terser": "latest",
+    "bootstrap": "^5.3.3",
+    "concurrently": "latest",
+    "dotenv": "latest",
+    "eslint": "latest",
+    "globals": "latest",
+    "rollup": "latest",
+    "rollup-plugin-livereload": "latest",
+    "rollup-plugin-sourcemaps": "latest",
     "sass": "latest"
   }
 }

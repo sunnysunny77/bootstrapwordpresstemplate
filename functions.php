@@ -38,35 +38,11 @@ add_action('after_setup_theme', 'boot_setup');
 function boot_scripts()
 {
 
-    wp_deregister_script('jquery');
+    wp_enqueue_style('app-min-css', get_template_directory_uri() . '/assets/css/app.min.css');
 
-    wp_enqueue_script('jquery', get_template_directory_uri() . '/js/bs/jquery.js', '', '', false);
+    wp_enqueue_script('app-min-js', get_template_directory_uri() . '/assets/js/app.min.js','', '', true);
 
-    wp_enqueue_script('bootstrap_js', get_template_directory_uri() . '/js/bs/bootstrap.bundle.min.js',  array( 'jquery' ), '', true);
-    
-    wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/assets/css/bootstrap.min.css');
 
-    wp_enqueue_script('jquery-form','', array( 'jquery' ), '', true); 
-   
-    if (is_front_page()) {
-        wp_enqueue_style('home-css', get_template_directory_uri() . '/assets/css/home.css');
-        /*  wp_enqueue_script('form-js', get_template_directory_uri() . '/js/form.js', array( 'jquery' ), '', true);
-        wp_localize_script('form-js', 'frontend_ajax_object',
-        array( 
-            'ajaxurl' => admin_url( 'admin-ajax.php' ),
-            'data_var_1' => '',
-        )*/
-    }  else if (is_home()) {
-        wp_enqueue_style('blog-css', get_template_directory_uri() . '/assets/css/blog.css');
-    } else if (is_single()) {
-        wp_enqueue_style('single-css', get_template_directory_uri() . '/assets/css/single.css');
-    } else if (is_archive()) {
-        wp_enqueue_style('archive-css', get_template_directory_uri() . '/assets/css/archive.css');
-    } else if (is_search()) {
-        wp_enqueue_style('search-css', get_template_directory_uri() . '/assets/css/search.css');
-    } else if (is_404()) {
-        wp_enqueue_style('notfound-css', get_template_directory_uri() . '/assets/css/notfound.css');
-    }
 }
 add_action('wp_enqueue_scripts', 'boot_scripts');
 
@@ -104,25 +80,6 @@ function boot_session() {
 add_action( 'init', 'boot_session' );
 
 /*
-
-function boot_submit_form()
-{
- 
-   require_once(get_template_directory() . '/'); 
-    
-    =
-
-    <form class="grid-x align-center" method="post" id="submit_form">   
-        <input type="hidden" name="action" value="submit_form" >  
-    </form>
-    
-   
-  
-    exit();
-}
-add_action('wp_ajax_submit_form', "boot_submit_form");
-add_action('wp_ajax_nopriv_submit_form', 'boot_submit_form');
-
 function boot_cptui_register_my_cpts()
 {
 
@@ -160,46 +117,16 @@ function boot_cptui_register_my_cpts()
 }
 
 add_action('init', 'boot_cptui_register_my_cpts');
-
 */
 
 function boot_on_theme_activation()
 {
 
-    function foundation_post_meta($id, $key, $val)
+    function boot_post_meta($id, $key, $val)
     {
         add_post_meta($id, $key, $val, true);
     }
 
-    /*
-       $ = [ '' => [ , ],;
-
-    if (get_post_type_object("")) {
-        foreach ($ as $x => $) {
-            $page = array(
-                'post_type'      => '',
-                'post_status'    => 'publish',
-                'post_title' =>  $x,
-            );
-            $id = wp_insert_post($page);
-           foundation_post_meta($id, '', '');
-        }
-    }
-
-     if (!get_page_template_slug(256)) {
-        $page = array(
-            'import_id'         =>  256,
-            'post_title'     => '',
-            'post_type'      => 'page',
-            'post_name'      => '',
-            'post_status'    => 'publish',
-            'page_template' => 'page-.php',
-        );
-        $id = wp_insert_post($page);
-        // foundation_post_meta($id, '', '');
-    }
-
-    */
 
     if (!get_option('page_on_front')) {
         $page = array(
@@ -211,7 +138,7 @@ function boot_on_theme_activation()
         $id = wp_insert_post($page);
         update_option('page_on_front', $id);
         update_option('show_on_front', 'page');
-        // foundation_post_meta($id, '', '');
+        // boot_post_meta($id, '', '');
     }
 
     if (!get_option('page_for_posts')) {

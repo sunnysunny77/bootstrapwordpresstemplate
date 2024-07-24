@@ -1,8 +1,8 @@
 <br>
 npm install
 <br>
-compile css
+npm run production "no source maps"
 <br>
 npm run build
 <br>
-or npm run watch
+npm run watch

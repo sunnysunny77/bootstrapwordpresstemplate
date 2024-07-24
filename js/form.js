@@ -1,22 +1,11 @@
-/*
-var options_1 = {
-    success: showResponse_1,
-    target: '#',
-    url: frontend_ajax_object.ajaxurl,
-    value_1: frontend_ajax_object.data_var_1,
-    data: data,
+import { events } from "./utillites.js";
+
+export const form = () =>{
+
+    const form = document.querySelector("#submit_form");
+
+    events(form, "submit", (event)=> {
+        event.preventDefault();
+        console.log(event.target.name.value);
+    });
 };
-
-function showResponse_1(responseText, statusText, xhr, $form) {
-    
-}
-
-function data(formData) {
-    $data = formData
-    $data.push({ name: "", value: this.value_1})
-    return $data;
-}
-
-$(document).ready(function () {
-    $('#').ajaxForm(options_1);
-}); */
