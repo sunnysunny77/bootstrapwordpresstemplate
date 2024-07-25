@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "description": "bsv3",
-  "main": "./js/app.js",
+  "main": "./js/index.js",
   "scripts": {
     "watch-css": "sass --embed-sources ./scss/app.scss:./assets/css/app.min.css --style compressed -w",
     "build-css": "sass --embed-sources ./scss/app.scss:./assets/css/app.min.css --style compressed",
