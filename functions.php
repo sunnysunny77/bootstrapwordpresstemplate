@@ -38,16 +38,14 @@ add_action('after_setup_theme', 'boot_setup');
 function boot_scripts()
 {
 
-    wp_enqueue_style('app-min-css', get_template_directory_uri() . '/assets/css/app.min.css');
+    wp_enqueue_style('app-min', get_template_directory_uri() . '/assets/css/app.min.css');
 
-    wp_enqueue_script('app-min-js', get_template_directory_uri() . '/assets/js/app.min.js','', '', true);
+    wp_enqueue_script('app-min', get_template_directory_uri() . '/assets/js/app.min.js','', '', true);
 
-    /*
-    wp_localize_script( 'app-min-js', 'frontend_ajax_object', array(
+    wp_localize_script( 'app-min', 'frontend_ajax_object', array(
         'ajax_url' => admin_url( 'admin-ajax.php' ),
         //'data_var_1' => 'test',
     ));
-    */
 }
 add_action('wp_enqueue_scripts', 'boot_scripts');
 
@@ -83,44 +81,7 @@ function boot_session() {
     }
 }
 add_action( 'init', 'boot_session' );
-/*
-function boot_cptui_register_my_cpts()
-{
 
-    $labels = [
-        "name" => __("products", "custom-post-type-ui"),
-        "singular_name" => __("product", "custom-post-type-ui"),
-    ];
-
-    $args = [
-        "label" => __("products", "custom-post-type-ui"),
-        "labels" => $labels,
-        "description" => "products",
-        "public" => true,
-        "publicly_queryable" => true,
-        "show_ui" => true,
-        "show_in_rest" => true,
-        "rest_base" => "",
-        "rest_controller_class" => "WP_REST_Posts_Controller",
-        "has_archive" => false,
-        "show_in_menu" => true,
-        "show_in_nav_menus" => true,
-        "delete_with_user" => false,
-        "exclude_from_search" => false,
-        "capability_type" => "post",
-        "map_meta_cap" => true,
-        "hierarchical" => false,
-        "can_export" => false,
-        "rewrite" => ["slug" => "products", "with_front" => true],
-        "query_var" => true,
-        "supports" => ["title"],
-        "menu_icon" => "dashicons-products",
-        "show_in_graphql" => false,
-    ];
-    register_post_type("products", $args);
-}
-add_action('init', 'boot_cptui_register_my_cpts');
-*/
 function boot_on_theme_activation()
 {
 
@@ -217,5 +178,49 @@ function boot_contact_form()
     }
     exit();
 }
-add_action('wp_ajax_contact_form', "boot_contact_form");
-add_action('wp_ajax_nopriv_contact_form', 'boot_contact_form');
+//add_action('wp_ajax_contact_form', "boot_contact_form");
+//add_action('wp_ajax_nopriv_contact_form', 'boot_contact_form');
+
+function boot_register_my_service_worker() {   
+    echo '<link rel="manifest" href="'.get_template_directory_uri().'/manifest.json">';
+    echo '<link rel="apple-touch-icon"" href="'.get_template_directory_uri().'assets/images/pwa-logo-small.png">';
+    echo '<script>navigator.serviceWorker.register("'.get_template_directory_uri().'/service-worker.js")</script>';
+}
+//add_action( 'wp_head', 'boot_register_my_service_worker' );
+
+function boot_cptui_register_my_cpts()
+{
+
+    $labels = [
+        "name" => __("products", "custom-post-type-ui"),
+        "singular_name" => __("product", "custom-post-type-ui"),
+    ];
+
+    $args = [
+        "label" => __("products", "custom-post-type-ui"),
+        "labels" => $labels,
+        "description" => "products",
+        "public" => true,
+        "publicly_queryable" => true,
+        "show_ui" => true,
+        "show_in_rest" => true,
+        "rest_base" => "",
+        "rest_controller_class" => "WP_REST_Posts_Controller",
+        "has_archive" => false,
+        "show_in_menu" => true,
+        "show_in_nav_menus" => true,
+        "delete_with_user" => false,
+        "exclude_from_search" => false,
+        "capability_type" => "post",
+        "map_meta_cap" => true,
+        "hierarchical" => false,
+        "can_export" => false,
+        "rewrite" => ["slug" => "products", "with_front" => true],
+        "query_var" => true,
+        "supports" => ["title"],
+        "menu_icon" => "dashicons-products",
+        "show_in_graphql" => false,
+    ];
+    register_post_type("products", $args);
+}
+//add_action('init', 'boot_cptui_register_my_cpts');

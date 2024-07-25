@@ -16,6 +16,6 @@ import { events } from "./utillites.js";
 //import { contact_form } from "./contact_form.js";
 
 events(window, "load", () => {
-
-   // contact_form();
+   
+   //contact_form();
 });
