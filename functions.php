@@ -42,7 +42,10 @@ function boot_scripts()
 
     wp_enqueue_script('app-min-js', get_template_directory_uri() . '/assets/js/app.min.js','', '', true);
 
-
+    wp_localize_script( 'app-min-js', 'frontend_ajax_object', array(
+        'ajax_url' => admin_url( 'admin-ajax.php' ),
+        //'data_var_1' => 'test',
+    ));
 }
 add_action('wp_enqueue_scripts', 'boot_scripts');
 
@@ -127,7 +130,6 @@ function boot_on_theme_activation()
         add_post_meta($id, $key, $val, true);
     }
 
-
     if (!get_option('page_on_front')) {
         $page = array(
             'post_title'     => 'Home',
@@ -169,3 +171,30 @@ function boot_custom_logo_output( $html ) {
 	return $html;
 }
 add_filter('get_custom_logo', 'boot_custom_logo_output', 10);
+
+function boot_submit_form()
+{
+    $to_email = $_POST['to_email'];
+    $subject = $_POST['subject'];
+    $name = $_REQUEST["name"];
+    $email = $_REQUEST["email"];
+    $message = $_REQUEST["message"];
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $body = "
+    <html>
+    <p>You have a message from the contact us page on your website:</p>
+    <b>Name: </b>".$name."
+    <br><b>Email: </b>".$email."
+    <br><b>Message: </b>".$message."
+    </html>";
+    $mail = mail($to_email, $subject, $body, $headers);
+    if (!$mail) {
+        print_r(error_get_last()['message']);
+    } else {
+        echo "Thanks, message sent.";
+    }
+    exit();
+}
+add_action('wp_ajax_submit_form', "boot_submit_form");
+add_action('wp_ajax_nopriv_submit_form', 'boot_submit_form');

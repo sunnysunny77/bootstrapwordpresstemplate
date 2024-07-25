@@ -13,8 +13,9 @@ import "../node_modules/bootstrap/js/dist/collapse";
 //import "../node_modules/bootstrap/js/dist/tooltip";
 import "../node_modules/@fortawesome/fontawesome-free/js/all.js";
 import { events } from "./utillites.js";
+import { form } from "./form.js";
 
 events(window, "load", () => {
 
-
+  form();
 });
