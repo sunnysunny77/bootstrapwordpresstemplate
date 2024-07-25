@@ -1,6 +1,5 @@
 import { events } from "./utillites.js";
 
-
 export const contact_form = () => {
 
     events(document.querySelector("#contact_form"), "submit", async (event) => {
@@ -16,4 +15,3 @@ export const contact_form = () => {
         );
     });
 };
-
