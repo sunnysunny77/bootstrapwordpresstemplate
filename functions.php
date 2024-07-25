@@ -82,19 +82,18 @@ function boot_session() {
 }
 add_action( 'init', 'boot_session' );
 
-/*
 function boot_cptui_register_my_cpts()
 {
 
     $labels = [
-        "name" => __("", "custom-post-type-ui"),
-        "singular_name" => __("", "custom-post-type-ui"),
+        "name" => __("products", "custom-post-type-ui"),
+        "singular_name" => __("product", "custom-post-type-ui"),
     ];
 
     $args = [
-        "label" => __("", "custom-post-type-ui"),
+        "label" => __("products", "custom-post-type-ui"),
         "labels" => $labels,
-        "description" => "",
+        "description" => "products",
         "public" => true,
         "publicly_queryable" => true,
         "show_ui" => true,
@@ -110,25 +109,35 @@ function boot_cptui_register_my_cpts()
         "map_meta_cap" => true,
         "hierarchical" => false,
         "can_export" => false,
-        "rewrite" => ["slug" => "", "with_front" => true],
+        "rewrite" => ["slug" => "products", "with_front" => true],
         "query_var" => true,
         "supports" => ["title"],
+        "menu_icon" => "dashicons-products",
         "show_in_graphql" => false,
     ];
-
     register_post_type("products", $args);
 }
 
 add_action('init', 'boot_cptui_register_my_cpts');
-*/
 
 function boot_on_theme_activation()
 {
 
-    function boot_post_meta($id, $key, $val)
+    function boot_remove_post($page_path, $output, $post_type)
     {
-        add_post_meta($id, $key, $val, true);
+
+        $post = get_page_by_path($page_path, $output, $post_type);
+
+        if ($post) {
+            wp_delete_post($post->ID, true);
+        }
     }
+
+    boot_remove_post('hello-world', 'OBJECT', 'post');
+
+    boot_remove_post('Sample Page', 'OBJECT', 'page');
+
+    boot_remove_post('Privacy Policy', 'OBJECT', 'page');
 
     if (!get_option('page_on_front')) {
         $page = array(
@@ -140,7 +149,6 @@ function boot_on_theme_activation()
         $id = wp_insert_post($page);
         update_option('page_on_front', $id);
         update_option('show_on_front', 'page');
-        // boot_post_meta($id, '', '');
     }
 
     if (!get_option('page_for_posts')) {
@@ -153,7 +161,19 @@ function boot_on_theme_activation()
         $id = wp_insert_post($page);
         update_option('page_for_posts', $id);
     }
-
+/*
+    if (!get_page_template_slug(256)) {
+        $page = array(
+            'import_id'         =>  256,
+            'post_title'     => '',
+            'post_type'      => 'page',
+            'post_name'      => '',
+            'post_status'    => 'publish',
+            'page_template' => 'page- ? .php',
+        );
+        $id = wp_insert_post($page);
+    }
+*/
 	update_option( 'uploads_use_yearmonth_folders', 0 );
 }
 add_action('after_switch_theme', 'boot_on_theme_activation');
