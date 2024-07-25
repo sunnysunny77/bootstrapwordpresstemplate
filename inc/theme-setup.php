@@ -109,9 +109,9 @@ function boot_on_theme_activation()
         update_option('page_for_posts', $id);
     }
 
-    if (!get_page_template_slug(256)) {
+    if (!get_post_status(256)) {
         $page = array(
-            'import_id'         =>  256,
+            'import_id'      =>  256,
             'post_title'     => 'Example',
             'post_type'      => 'page',
             'post_name'      => 'Example',
