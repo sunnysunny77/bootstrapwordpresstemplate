@@ -2,7 +2,7 @@
 
     <main id="main" class="container">
 
-        <?php get_template_part("template-parts/section", "form"); ?> 
+        <?php get_template_part("template-parts/section", "contact-form"); ?> 
 
     </main>
 

@@ -1,4 +1,4 @@
-<form id="submit_form" >
+<form id="contact_form">
     <fieldset>
         <legend>
             <h2>Contact us</h2>
@@ -12,6 +12,6 @@
         <label for="message">Enter your message:
             <textarea name="message" id="message" maxlength="1000" rows="6" required></textarea>
         </label>
-        <input class="btn btn-dark mt-2" type="submit" value="Send">
+        <input type="submit" value="Send">
     </fieldset>
 </form>

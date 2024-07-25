@@ -172,7 +172,7 @@ function boot_custom_logo_output( $html ) {
 }
 add_filter('get_custom_logo', 'boot_custom_logo_output', 10);
 
-function boot_submit_form()
+function boot_contact_form()
 {
     $to_email = $_POST['to_email'];
     $subject = $_POST['subject'];
@@ -196,5 +196,5 @@ function boot_submit_form()
     }
     exit();
 }
-add_action('wp_ajax_submit_form', "boot_submit_form");
-add_action('wp_ajax_nopriv_submit_form', 'boot_submit_form');
+add_action('wp_ajax_contact_form', "boot_contact_form");
+add_action('wp_ajax_nopriv_contact_form', 'boot_contact_form');
