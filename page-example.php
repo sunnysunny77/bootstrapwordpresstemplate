@@ -2,8 +2,8 @@
 
     <main id="main" class="container">
 
-        <?php // get_template_part("template-parts/section", "contact-form"); ?> 
-
+        example
+        
     </main>
 
 <?php get_footer(); ?>
