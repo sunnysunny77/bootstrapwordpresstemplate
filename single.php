@@ -1,6 +1,6 @@
 <?php get_header() ?>
 
-  <main id="main" class="ps-3 pe-3">
+  <main id="main" class="container">
 
     <?php if (have_posts()) { ?>
 

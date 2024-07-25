@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-    <main id="main" class="ms-3 me-3 container mx-auto">
+    <main id="main" class="container">
 
         <h1 class="text-md-end m-5"> Search: &nbsp; <?php the_search_query() ?></h1>
 

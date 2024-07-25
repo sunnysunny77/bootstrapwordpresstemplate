@@ -17,7 +17,7 @@
 
     <header>
 
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="">
+        <nav class="navbar navbar-expand-sm" aria-label="">
 
             <div class="container-fluid">
 
@@ -27,9 +27,15 @@
                 }
                 ?>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    
+                    <div>
+                        <div class="slider_8-bar1"></div>
+                        <div class="slider_8-bar2"></div>
+                        <div class="slider_8-bar3"></div>
+                    </div>
+
+               </button>
 
                 <?php wp_nav_menu(
 

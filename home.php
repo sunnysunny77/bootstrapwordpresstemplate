@@ -1,6 +1,6 @@
 <?php get_header() ?>
 
-  <main id="main" class="ps-3 pe-3">
+  <main id="main" class="container">
 
     <h1 class="text-md-end m-5"> <?php echo get_bloginfo(); ?> </h1>
 

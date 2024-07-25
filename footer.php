@@ -1,12 +1,15 @@
     <footer class="d-flex p-3 justify-content-between">
-
+    
       <?php wp_nav_menu(
         array(
-          'menu' => 'Footer Navigation',
-          'container'  => 'ul',
-          'menu_class' => 'col-sm-5 list-unstyled',
+          'theme_location'    => 'footer-nav',
+          'depth'             => 2,
+          'container'         => 'ul',
+          'container_id'      => 'footer-nav',
+          'menu_class'        => 'col-sm-5 list-unstyled',
           'items_wrap' => '<ul id="%1$s" class="%2$s"><li>links</li>%3$s</ul>',)
-      );?>     
+        );
+      ?>
 
       <ul class="col-sm-7 text-end list-unstyled">
 

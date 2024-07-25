@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-    <main id="main" class="ps-3 pe-3 container mx-auto">
+    <main id="main" class="container">
 
-        <?php get_template_part("template-parts/section", "form"); ?> 
+        <?php // get_template_part("template-parts/section", ""); ?> 
 
     </main>
 
