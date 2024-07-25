@@ -9,11 +9,11 @@ self.addEventListener("install", (event) => {
   console.log(`${version} installing...`);
   event.waitUntil(
     addResourcesToCache([
-      "/",
-      "./example",
-      "./assets/js/app.min.js",
-      "./assets/css/app.min.css",
-      "./assets/font/Poppins-Regular.ttf"
+      "/index.php",
+      "/index.php/example",
+      "/wp-content/themes/bsv3/assets/js/app.min.js",
+      "/wp-content/themes/bsv3/assets/css/app.min.css",
+      "/wp-content/themes/bsv3/assets/font/Poppins-Regular.ttf"
     ])
   );
 });

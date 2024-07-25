@@ -5,6 +5,7 @@
     "background_color": "#FFC0CB",
     "theme_color": "#FFC0CB",
     "display": "standalone",
+    "start_url": "http://localhost:8888/",
     "icons": [       
         {
             "src": "assets/images/pwa-logo.png",
