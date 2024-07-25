@@ -1,80 +1,89 @@
 <?php get_header() ?>
 
-  <main id="main" class="container">
+    <main id="main" class="container">
 
-    <?php if (have_posts()) { ?>
+        <?php if (have_posts()) { ?>
 
-      <?php while (have_posts()) { the_post(); ?>
+            <?php while (have_posts()) { the_post(); ?>
 
-      <?php
-        $classes = [
-          'd-flex',
-          'container',
-          'mb-5',
-          'align-items-sm-center',
-          'align-items-md-start',
-          'mx-auto',
-          'flex-column'
-        ];
-        ?>
+                <?php
 
-        <section id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
+                    $classes = [
+                        'd-flex',
+                        'container',
+                        'mb-5',
+                        'align-items-sm-center',
+                        'align-items-md-start',
+                        'mx-auto',
+                        'flex-column'
+                    ];
+                    
+                ?>
 
-          <h1 class="text-md-end m-5"><?php the_title(); ?></h1>
+                <section id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
 
-          <?php echo get_the_date(); ?>
+                    <h1 class="text-md-end m-5"><?php the_title(); ?></h1>
 
-          <?php the_time(); ?>
+                    <?php echo get_the_date(); ?>
 
-          <?php the_author(); ?><br />
+                    <?php the_time(); ?>
 
-          <?php
-          if (has_post_thumbnail()) {
-          ?>
-            <div>
-              <?php the_post_thumbnail(); ?>
-            </div>
-          <?php } ?>
+                    <?php the_author(); ?><br />
 
-          <?php the_content() ?>
+                    <?php if (has_post_thumbnail()) { ?>
 
-          <?php edit_post_link(); ?>
+                        <div>
 
-          <?php the_post_navigation(array(
-            'prev_text' => '← %title',
-            'next_text' => '→ %title',
-            'screen_reader_text' => 'Continue Reading',
-          )); ?>
+                            <?php the_post_thumbnail(); ?>
 
-          <p>
-            By:&nbsp;
-            <?php the_author(); ?>
-            ,
-            <?php echo get_the_date(); ?>
-          </p>
+                        </div>
+                        
+                    <?php } ?>
 
-          <?php the_category();  ?>
+                    <?php the_content() ?>
 
-          <?php if (the_tags()) { ?>
-			
-          <p>
+                    <?php edit_post_link(); ?>
 
-            <?php the_tags(); ?>
+                    <?php the_post_navigation(array(
+                        'prev_text' => '← %title',
+                        'next_text' => '→ %title',
+                        'screen_reader_text' => 'Continue Reading',
+                        )
+                    );?>
 
-          </p>
+                    <p>
 
-          <?php } ?>
+                        By: &nbsp;
+                        <?php the_author(); ?>
+                        ,
+                        <?php echo get_the_date(); ?>
+                        
+                    </p>
 
-          <?php if (comments_open() || get_comments_number()) {
-            comments_template();
-          } ?>
+                    <?php the_category(); ?>
 
-        </section>
+                    <?php if (the_tags()) { ?>
+                        
+                        <p>
 
-      <?php } ?>
+                            <?php the_tags(); ?>
 
-    <?php } ?>
+                        </p>
 
-  </main>
+                    <?php } ?>
+
+                    <?php if (comments_open() || get_comments_number()) {
+
+                        comments_template();
+                        
+                    } ?>
+
+                </section>
+
+            <?php } ?>
+
+        <?php } ?>
+
+    </main>
 
 <?php get_footer(); ?>

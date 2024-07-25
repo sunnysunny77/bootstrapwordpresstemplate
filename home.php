@@ -1,64 +1,68 @@
 <?php get_header() ?>
 
-  <main id="main" class="container">
+    <main id="main" class="container">
 
-    <h1 class="text-md-end m-5"> <?php echo get_bloginfo(); ?> </h1>
+        <h1 class="text-md-end m-5"> <?php echo get_bloginfo(); ?> </h1>
 
-    <?php if (have_posts()) { ?>
+        <?php if (have_posts()) { ?>
 
-      <?php while (have_posts()) { the_post(); ?>
+            <?php while (have_posts()) { the_post(); ?>
 
-        <?php
-        $classes = [
-          'd-flex',
-          'container',
-          'mb-5',
-          'align-items-sm-center',
-          'align-items-md-start',
-          'mx-auto',
-          'flex-column'
-        ];
-        ?>
+                <?php
 
-        <article <?php post_class($classes); ?> id="post-<?php the_ID(); ?>">
+                    $classes = [
+                        'd-flex',
+                        'container',
+                        'mb-5',
+                        'align-items-sm-center',
+                        'align-items-md-start',
+                        'mx-auto',
+                        'flex-column'
+                    ];
 
-          <h2 class="text-md-end m-5"> <a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a> </h2>
+                ?>
 
-          <p>
-            By:&nbsp;
-            <?php the_author(); ?>
-            ,
-            <?php echo get_the_date(); ?>
-          </p>
+                <article <?php post_class($classes); ?> id="post-<?php the_ID(); ?>">
 
-          <?php if (has_post_thumbnail()) {  echo '<div role="img" aria-label="post_thumbnail" style="background-image: url(' . get_the_post_thumbnail_url() . ');"></div>'; } ?>
+                    <h2 class="text-md-end m-5"> <a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a> </h2>
 
-          <?php the_content() ?>
+                    <p>
 
-          <?php the_category();  ?>
+                        By: &nbsp;
+                        <?php the_author(); ?>
+                        ,
+                        <?php echo get_the_date(); ?>
 
-          <p>
+                    </p>
 
-            <?php the_tags(); ?>
+                    <?php if (has_post_thumbnail()) {  echo '<div role="img" aria-label="post_thumbnail" style="background-image: url(' . get_the_post_thumbnail_url() . ');"></div>'; } ?>
 
-          </p>
+                    <?php the_content() ?>
 
-          <p>
+                    <?php the_category();  ?>
 
-            Comments:
+                    <p>
 
-            <?php comments_popup_link(); ?>
+                    <?php the_tags(); ?>
 
-          </p>
+                    </p>
 
-          <?php edit_post_link(); ?>
+                    <p>
 
-        </article>
+                        Comments:
 
-      <?php } ?>
+                        <?php comments_popup_link(); ?>
 
-    <?php } ?>
+                    </p>
 
-  </main>
+                    <?php edit_post_link(); ?>
+
+                </article>
+
+            <?php } ?>
+
+        <?php } ?>
+
+    </main>
 
 <?php get_footer(); ?>

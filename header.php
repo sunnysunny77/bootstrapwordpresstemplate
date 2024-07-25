@@ -13,8 +13,6 @@
 
 <body>
 
-    <a href="#main" class="d-none" accesskey="S"> Skip navigation </a>
-
     <header>
 
         <nav class="navbar navbar-expand-sm" aria-label="">
@@ -22,24 +20,27 @@
             <div class="container-fluid">
 
                 <?php
+
                 if (function_exists('the_custom_logo')) {
+
                     the_custom_logo();
                 }
+
                 ?>
 
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     
                     <div>
+
                         <div class="slider_8-bar1"></div>
                         <div class="slider_8-bar2"></div>
                         <div class="slider_8-bar3"></div>
+
                     </div>
 
                </button>
 
-                <?php wp_nav_menu(
-
-                    array(
+                <?php wp_nav_menu(array(
                         'theme_location'    => 'main-nav',
                         'depth'             => 2,
                         'container'         => 'div',
@@ -49,8 +50,7 @@
                         'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
                         'walker'            => new WP_Bootstrap_Navwalker(),
                     )
-                );
-                ?>
+                );?>
 
             </div>
             

@@ -10,17 +10,27 @@
 
 				<?php if (has_post_thumbnail()) {  echo '<div role="img" aria-label="post_thumbnail" style="background-image: url(' . get_the_post_thumbnail_url() . ');"></div>'; } ?>
 
-				<h2 class="text-md-end m-5">  <a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a></h2>
+				<h2 class="text-md-end m-5">  
+
+					<a href="<?php the_permalink(); ?>"> 
+
+						<?php the_title(); ?> 
+
+					</a>
+					
+				</h2>
 
 				<?php the_excerpt(); ?>
 
 				<p>
-					By:&nbsp;
+
+					By: &nbsp;
 					<?php the_author(); ?>
 					,
 					<?php echo get_the_date(); ?>
 					,
 					<?php the_time(); ?>
+
 				</p>
 
 				<p>
