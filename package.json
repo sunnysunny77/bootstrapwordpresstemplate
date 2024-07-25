@@ -32,7 +32,6 @@
     "@rollup/plugin-terser": "latest",
     "bootstrap": "^5.3.3",
     "concurrently": "latest",
-    "dotenv": "latest",
     "eslint": "latest",
     "globals": "latest",
     "rollup": "latest",
