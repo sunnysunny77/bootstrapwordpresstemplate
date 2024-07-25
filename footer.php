@@ -13,7 +13,7 @@
 
       <ul class="col-sm-7 text-end list-unstyled">
 
-        <li>&copy;</li>
+        <li><i class="fa-regular fa-copyright"></i></li>
         <?php dynamic_sidebar("widget_one"); ?>
 
 	    </ul>
