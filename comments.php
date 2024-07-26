@@ -39,9 +39,9 @@
 	'title_reply_to'    => 'Leave a Comment to %s',
 	'cancel_reply_link' => 'Cancel Comment',
 	'fields' => array(
-        'author' => '<p class="comment-form-author"><input id="author" name="author" aria-required="true" placeholder="' . $comment_author .'"></input></p>',
-        'email' => '<p class="comment-form-email"><input id="email" name="email" placeholder="' . $comment_email .'"></input></p>',
-        'url' => '<p class="comment-form-url"><input id="url" name="url" placeholder="' . $comment_url .'"></input></p>',
+        'author' => '<p class="comment-form-author"><input id="author" name="author" aria-required="true" placeholder="' . $comment_author .'"></p>',
+        'email' => '<p class="comment-form-email"><input id="email" name="email" placeholder="' . $comment_email .'"></p>',
+        'url' => '<p class="comment-form-url"><input id="url" name="url" placeholder="' . $comment_url .'"></p>',
         'cookies' => '<input type="checkbox" required>' . $comment_cookies_1 ,
     ),
 	'comment_field' =>  '<p><label for="comment" class="d-none">Comments</label><textarea placeholder="Start typing..." id="comment" name="comment" rows="8" aria-required="true"></textarea></p>',
