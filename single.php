@@ -22,7 +22,7 @@
 
                 <section id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
 
-                    <h1 class="text-md-end m-5"><?php the_title(); ?></h1>
+                    <h1><?php the_title(); ?></h1>
 
                     <?php echo get_the_date(); ?>
 

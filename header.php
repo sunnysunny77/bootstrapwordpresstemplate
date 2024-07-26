@@ -17,7 +17,7 @@
 
         <nav class="navbar navbar-expand-sm" aria-label="">
 
-            <div class="container-fluid">
+            <div class="container">
 
                 <?php
 
@@ -46,7 +46,7 @@
                         'container'         => 'div',
                         'container_class'   => 'collapse navbar-collapse',
                         'container_id'      => 'main-nav',
-                        'menu_class'        => 'navbar-nav text-center ms-auto',
+                        'menu_class'        => 'navbar-nav',
                         'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
                         'walker'            => new WP_Bootstrap_Navwalker(),
                     )

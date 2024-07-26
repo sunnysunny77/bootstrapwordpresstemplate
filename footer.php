@@ -1,4 +1,4 @@
-    <footer class="d-flex p-3 justify-content-between">
+    <footer class="container d-flex">
     
         <?php if ( has_nav_menu( 'footer-nav' ) ) {
             wp_nav_menu(array(

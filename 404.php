@@ -2,9 +2,9 @@
 
 	<main id="main" class="container">
 
-		<h1 class="text-md-end m-5"> 404 not found</h1>
+		<h1> 404 not found</h1>
 		
-		<h2 class="text-md-end m-5"> :(</h2>
+		<h2> :(</h2>
 
 		<p>
 			Regretfully this page could not be found.

@@ -2,7 +2,7 @@
 
     <main id="main" class="container">
 
-        <h1 class="text-md-end m-5"> <?php echo get_bloginfo(); ?> </h1>
+        <h1> <?php echo get_bloginfo(); ?> </h1>
 
         <?php if (have_posts()) { ?>
 
@@ -24,7 +24,7 @@
 
                 <article <?php post_class($classes); ?> id="post-<?php the_ID(); ?>">
 
-                    <h2 class="text-md-end m-5"> <a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a> </h2>
+                    <h2> <a href="<?php the_permalink(); ?>"> <?php the_title(); ?> </a> </h2>
 
                     <p>
 

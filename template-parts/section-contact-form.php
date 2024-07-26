@@ -1,17 +1,17 @@
 <form id="contact_form">
-    <fieldset>
-        <legend>
+    <fieldset class="row justify-content-center">
+        <legend class="col-48">
             <h2>Contact us</h2>
         </legend>
-        <label for="name">Enter your name:
-            <input type="text" name="name" id="name" autocomplete="on" required>
+        <labe class="col-48 row" for="name">Enter your name:
+            <input class="col-48" type="text" name="name" id="name" autocomplete="on" required>
         </label>
-        <label for="email">Enter your email:
-            <input type="email" name="email" id="email" autocomplete="on" required>
+        <label class="col-48 row" for="email">Enter your email:
+            <input class="col-48" type="email" name="email" id="email" autocomplete="on" required>
         </label>
-        <label for="message">Enter your message:
-            <textarea name="message" id="message" maxlength="1000" rows="6" required></textarea>
-        </label>
-        <input type="submit" value="Send">
+        <label class="col-48 row" for="message">Enter your message:
+            <textarea class="col-48" name="message" id="message" maxlength="1000" rows="6" required></textarea>
+        </label>    
     </fieldset>
+    <input type="submit" value="Send">
 </form>

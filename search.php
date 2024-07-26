@@ -2,7 +2,7 @@
 
     <main id="main" class="container">
 
-        <h1 class="text-md-end m-5"> 
+        <h1> 
 
             Search: &nbsp; <?php the_search_query() ?>
             
@@ -14,7 +14,7 @@
 
                 <?php if (has_post_thumbnail()) {  echo '<div role="img" aria-label="post_thumbnail" style="background-image: url(' . get_the_post_thumbnail_url() . ');"></div>'; } ?>
 
-                <h2 class="text-md-end m-5"> 
+                <h2> 
 
                     <a href="<?php the_permalink() ?>">
                         
