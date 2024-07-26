@@ -30,10 +30,10 @@
 	'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:' .
 	'</p><p class="alert alert-info">' . allowed_tags() . '</p>',
 	'fields' => array(
-		'author' 	=> '<p class="comment-form-author"><input id="author" name="author" required aria-required="true" placeholder="* Name"></p>',
-		'email' 	=> '<p class="comment-form-email"><input id="email" name="email" required aria-required="true" placeholder="* E-Mail"></p>',
-		'url' 		=> '<p class="comment-form-url"><input id="url" name="url" placeholder="Website"></p>',
-		'cookies' 	=> '<input type="checkbox"> Save my name, email, and website in this browser for the next time I comment.' ,
+		'author' 	=> '<p class="comment-form-author"><label for="author" class="d-none">Author</label><input id="author" name="author" required aria-required="true" placeholder="* Name"></p>',
+		'email' 	=> '<p class="comment-form-email"><label for="email" class="d-none">Email</label><input id="email" name="email" required aria-required="true" placeholder="* E-Mail"></p>',
+		'url' 		=> '<p class="comment-form-url"><label for="url" class="d-none">Website</label><input id="url" name="url" placeholder="Website"></p>',
+		'cookies' 	=> '<p class="comment-form-cookies"><input id="cookies" type="checkbox"><label for="cookies">Save my name, email, and website in this browser for the next time I comment.</label></p>' ,
 	),
 	'id_submit'     => 'commentsubmit'
 )
