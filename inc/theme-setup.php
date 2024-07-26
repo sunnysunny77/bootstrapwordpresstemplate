@@ -80,7 +80,7 @@ function boot_on_theme_activation()
         }
     }
 
-    boot_remove_post('hello-world', 'OBJECT', 'post');
+    //boot_remove_post('hello-world', 'OBJECT', 'post');
 
     boot_remove_post('Sample Page', 'OBJECT', 'page');
 
