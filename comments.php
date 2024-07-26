@@ -23,7 +23,7 @@
 	'title_reply_after'    => '</h2>',
 	'title_reply'       => 'Leave a Comment',
 	'title_reply_to'    => 'Leave a Comment to %s',
-	'cancel_reply_link' => 'Cancel Commnet',
+	'cancel_reply_link' => 'Cancel Comment',
 	'comment_field' =>  '<p><label for="comment" class="d-none">Comments</label><textarea placeholder="Start typing..." id="comment" class="form-control" name="comment" rows="8" aria-required="true"></textarea></p>',
 	'comment_notes_after' => '<p class="form-allowed-tags">' .
 	'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:' .
