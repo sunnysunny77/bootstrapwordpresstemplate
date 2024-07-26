@@ -1,4 +1,4 @@
 
-@mixin medium_and_up {
-    @media screen and (min-width: 40em) { @content; }
+@mixin xs_sm {
+    @media screen and (min-width: 0px) and (max-width: 575px) { @content; }
 }
