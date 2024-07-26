@@ -3,7 +3,7 @@
         <legend class="col-48">
             <h2>Contact us</h2>
         </legend>
-        <labe class="col-48 row" for="name">Enter your name:
+        <label class="col-48 row" for="name">Enter your name:
             <input class="col-48" type="text" name="name" id="name" autocomplete="on" required>
         </label>
         <label class="col-48 row" for="email">Enter your email:
