@@ -28,9 +28,13 @@
 
                 <?php the_content() ?>
 
-                Comments:
+                <p>
 
-                <?php comments_popup_link(); ?>
+                    Comments:
+
+                    <?php comments_popup_link(); ?>
+
+                </p>
 
             <?php } ?>
 
