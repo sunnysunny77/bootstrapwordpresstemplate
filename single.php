@@ -10,11 +10,6 @@
 
                     $classes = [
                         'd-flex',
-                        'container',
-                        'mb-5',
-                        'align-items-sm-center',
-                        'align-items-md-start',
-                        'mx-auto',
                         'flex-column'
                     ];
                     
