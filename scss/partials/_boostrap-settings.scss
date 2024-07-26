@@ -40,3 +40,9 @@ $container-max-widths: (
 	xl: 1000px,
 	xxl: 1140px
 );
+
+@include xs_sm {
+	.container {
+		max-width: calc(100% - 50px);
+	}
+}
