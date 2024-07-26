@@ -6,32 +6,32 @@ if (!isset($content_width)) {
 
 if (!function_exists('boot_setup')) {
 
-function boot_setup()
-{
-    register_nav_menus(
-        array(
-        'main-nav' => 'Main Navigation',
-        'footer-nav' => 'Footer Navigation',)
-    );
+    function boot_setup()
+    {
+        register_nav_menus(
+            array(
+            'main-nav' => 'Main Navigation',
+            'footer-nav' => 'Footer Navigation',)
+        );
 
-    add_theme_support('widget-customizer');
+        add_theme_support('widget-customizer');
 
-    add_theme_support('custom-logo', array('height' => 100, 'width' => 100,  'unlink-homepage-logo' => true,  'header-text' => array('site-title', 'site-description')));
+        add_theme_support('custom-logo', array('height' => 100, 'width' => 100,  'unlink-homepage-logo' => true,  'header-text' => array('site-title', 'site-description')));
 
-    add_theme_support('title-tag');
+        add_theme_support('title-tag');
 
-    add_theme_support('html5', ['script', 'style', 'comment-form', 'search-form', 'gallery', 'caption']);
+        add_theme_support('html5', ['script', 'style', 'comment-form', 'search-form', 'gallery', 'caption']);
 
-    add_theme_support('menus');
+        add_theme_support('menus');
 
-    // add_theme_support('post-formats', array('aside', 'gallery', 'quote', 'image', 'video'));
+        // add_theme_support('post-formats', array('aside', 'gallery', 'quote', 'image', 'video'));
 
-    // add_theme_support('automatic-feed-links');
+        // add_theme_support('automatic-feed-links');
 
-    add_theme_support('post-thumbnails');
+        add_theme_support('post-thumbnails');
 
-    require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
-}
+        require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+    }
 }
 add_action('after_setup_theme', 'boot_setup');
 

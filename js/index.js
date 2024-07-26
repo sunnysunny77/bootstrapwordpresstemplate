@@ -13,9 +13,9 @@ import "../node_modules/bootstrap/js/dist/collapse";
 //import "../node_modules/bootstrap/js/dist/tooltip";
 import "../node_modules/@fortawesome/fontawesome-free/js/all.js";
 import { events } from "./utillites.js";
-//import { contact_form } from "./contact_form.js";
+import { contact_form } from "./contact_form.js";
 
 events(window, "load", () => {
    
-   //contact_form();
+   contact_form();
 });
