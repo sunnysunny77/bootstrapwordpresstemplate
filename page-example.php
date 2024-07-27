@@ -38,8 +38,25 @@ wp_reset_query();
 
                 ?>
 
-                    <h2> <?php echo $product_title; ?> </h2>
-                    <p> <?php echo $product; ?> </p>
+                    <?php
+                        if ($product_title) {
+                            ?>
+
+                                <p>  Product Title: <?php echo $product_title; ?> </p>
+
+                            <?php
+                        }
+                    ?>
+
+                     <?php
+                        if ($product) {
+                            ?>
+
+                                <p> Product: <?php echo $product; ?> </p>
+
+                            <?php
+                        }
+                    ?>
             
                 <?php 
             }       
