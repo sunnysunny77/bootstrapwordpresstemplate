@@ -20,6 +20,8 @@ wp_reset_query();
 
     <main id="main" class="container">
 
+        <?php the_content() ?>
+
         <?php
             if ($example) {
                 ?>
