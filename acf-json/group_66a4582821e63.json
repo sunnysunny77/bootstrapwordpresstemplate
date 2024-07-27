@@ -1,6 +1,6 @@
 {
     "key": "group_66a4582821e63",
-    "title": "Home",
+    "title": "example",
     "fields": [
         {
             "key": "field_66a4582879f19",
@@ -41,5 +41,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1722048860
+    "modified": 1722048965
 }
