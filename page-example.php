@@ -24,7 +24,7 @@ wp_reset_query();
             if ($example) {
                 ?>
 
-                    <p> <?php echo $example; ?> </p>
+                    <p> Feild: <?php echo $example; ?> </p>
 
                 <?php
             }
@@ -38,8 +38,8 @@ wp_reset_query();
 
                 ?>
 
-                    <?php echo $product_title; ?>
-                    <?php echo $product; ?>
+                    <h2> <?php echo $product_title; ?> </h2>
+                    <p> <?php echo $product; ?> </p>
             
                 <?php 
             }       
