@@ -1,11 +1,11 @@
 {
-    "key": "group_66a4582821e63",
-    "title": "example",
+    "key": "group_66a461e47bdcd",
+    "title": "products",
     "fields": [
         {
-            "key": "field_66a4582879f19",
-            "label": "example",
-            "name": "example",
+            "key": "field_66a461e47720c",
+            "label": "product",
+            "name": "product",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "example",
+            "default_value": "product",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
@@ -26,9 +26,9 @@
     "location": [
         [
             {
-                "param": "page_template",
+                "param": "post_type",
                 "operator": "==",
-                "value": "page-example.php"
+                "value": "products"
             }
         ]
     ],
@@ -41,5 +41,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1722049225
+    "modified": 1722049272
 }
