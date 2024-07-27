@@ -13,7 +13,6 @@ self.addEventListener("install", (event) => {
       "/index.php/example",
       "/wp-content/themes/bsv3/assets/js/app.min.js",
       "/wp-content/themes/bsv3/assets/css/app.min.css",
-      "/wp-content/themes/bsv3/assets/font/Poppins-Regular.ttf"
     ])
   );
 });
