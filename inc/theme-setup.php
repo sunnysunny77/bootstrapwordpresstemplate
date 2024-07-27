@@ -92,6 +92,7 @@ function boot_on_theme_activation()
             'post_type'      => 'page',
             'post_name'      => 'Home',
             'post_status'    => 'publish',
+            'page_template'  => 'front-page.php',
         );
         $id = wp_insert_post($page);
         update_option('page_on_front', $id);
@@ -104,6 +105,7 @@ function boot_on_theme_activation()
             'post_type'      => 'page',
             'post_name'      => 'Posts',
             'post_status'    => 'publish',
+            'page_template'  => 'home.php',
         );
         $id = wp_insert_post($page);
         update_option('page_for_posts', $id);
@@ -116,7 +118,7 @@ function boot_on_theme_activation()
             'post_type'      => 'page',
             'post_name'      => 'Example',
             'post_status'    => 'publish',
-            'page_template' => 'page-example.php',
+            'page_template'  => 'page-example.php',
         );
         $id = wp_insert_post($page);
     }

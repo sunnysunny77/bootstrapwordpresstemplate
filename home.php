@@ -1,3 +1,7 @@
+<?php
+/* Template Name: home */
+?>
+
 <?php get_header() ?>
 
     <main id="main" class="container">
