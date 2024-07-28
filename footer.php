@@ -1,3 +1,11 @@
+    <?php 
+
+        $recent_posts = wp_get_recent_posts(array(
+            'post_type' => array( 'post', 'products' ),
+            )
+        );
+    ?> 
+    
     <footer class="container d-flex flex-wrap justify-content-between">
     
         <?php if ( has_nav_menu( 'footer-nav' ) ) {
@@ -19,7 +27,19 @@
                 <i class="fa-regular fa-copyright"></i>
 
             </li>
-            
+
+            <?php
+
+                foreach( $recent_posts as $recent ) {
+
+                    printf( '<li><a href="%1$s">%2$s</a></li>',
+                    esc_url( get_permalink( $recent['ID'] ) ),
+                    apply_filters( 'the_title', $recent['post_title'], $recent['ID'] )
+                    );
+
+                }
+            ?>
+
             <?php dynamic_sidebar("widget_one"); ?>
 
 	    </ul>
