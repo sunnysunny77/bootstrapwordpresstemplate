@@ -1,8 +1,8 @@
 {
-  "name": "bsv3",
+  "name": "bootstrapwordpresstemplate",
   "type": "module",
   "version": "1.0.0",
-  "description": "bsv3",
+  "description": "bootstrapwordpresstemplate",
   "main": "./js/index.js",
   "scripts": {
     "watch-css": "sass --embed-sources ./scss/app.scss:./assets/css/app.min.css --style compressed -w",
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sunnysunny77/bsv3.git"
+    "url": "git+https://github.com/sunnysunny77/bootstrapwordpresstemplate.git"
   },
   "author": "D.C",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sunnysunny77/bsv3/issues"
+    "url": "https://github.com/sunnysunny77/bootstrapwordpresstemplate/issues"
   },
-  "homepage": "https://github.com/sunnysunny77/bsv3#readme",
+  "homepage": "https://github.com/sunnysunny77/bootstrapwordpresstemplate#readme",
   "devDependencies": {
     "@fortawesome/fontawesome-free": "latest",
     "@rollup/plugin-babel": "latest",
