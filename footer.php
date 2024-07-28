@@ -36,7 +36,9 @@
             </li>
 
             <li>
+
                 Products
+                
             </li>
 
             <?php
@@ -45,15 +47,15 @@
 
                     ?>
 
-                    <li>
-                       
-                        <a href="<?php the_permalink() ?>">
+                        <li>
                             
-                            <?php the_title(); ?>
-                            
-                        </a>
+                            <a href="<?php the_permalink() ?>">
+                                
+                                <?php the_title(); ?>
+                                
+                            </a>
 
-                    </li>
+                        </li>
 
                     <?php
                 }
