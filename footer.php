@@ -1,9 +1,17 @@
     <?php 
 
-        $recent_posts = wp_get_recent_posts(array(
-            'post_type' => array( 'post', 'products' ),
-            )
-        );
+        //Custom Post 
+        $products = new WP_Query(array(
+            'post_type' => 'products',
+            'post_status' => 'publish',
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'ignore_sticky_posts' => 1, // if you are missing a post check this
+            'posts_per_page' => 20, // -1 for infinite results
+        ));
+        wp_reset_query();
+        ?>
+
     ?> 
     
     <footer class="container d-flex flex-wrap justify-content-between">
@@ -28,15 +36,27 @@
 
             </li>
 
+            <li>
+                Products
+            </li>
+
             <?php
 
-                foreach( $recent_posts as $recent ) {
+                while ($products->have_posts()) { $products->the_post();
 
-                    printf( '<li><a href="%1$s">%2$s</a></li>',
-                    esc_url( get_permalink( $recent['ID'] ) ),
-                    apply_filters( 'the_title', $recent['post_title'], $recent['ID'] )
-                    );
+                    ?>
 
+                    <li>
+                       
+                        <a href="<?php the_permalink() ?>">
+                            
+                            <?php the_title(); ?>
+                            
+                        </a>
+                        
+                    </li>
+
+                    <?php
                 }
             ?>
 
