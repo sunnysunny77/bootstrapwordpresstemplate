@@ -10,7 +10,6 @@
             'posts_per_page' => 20, // -1 for infinite results
         ));
         wp_reset_query();
-        ?>
 
     ?> 
     
@@ -53,7 +52,7 @@
                             <?php the_title(); ?>
                             
                         </a>
-                        
+
                     </li>
 
                     <?php
