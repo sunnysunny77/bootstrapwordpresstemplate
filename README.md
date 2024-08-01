@@ -9,6 +9,8 @@
     <br>
     https://www.php.net/downloads.php
     <br>
+    enable php extension mysqli openssl curl
+    <br>
     https://nodejs.org/en/download/package-manager
     <br>
     https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/installing.html
