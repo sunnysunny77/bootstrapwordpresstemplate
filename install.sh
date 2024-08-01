@@ -102,7 +102,7 @@ PHP
 
 vendor/bin/wp db create --path=site
 
-vendor/bin/wp core install --url="$CN:3000" --title=$TITLE --admin_user=$ADMINUSER --admin_password=$ADMINPASS --admin_email=$ADMINEMAIL --skip-themes --path=site
+vendor/bin/wp core install --url="$CN:3000" --title=$TITLE --admin_user=$ADMINUSER --admin_password=$ADMINPASS --admin_email=$ADMINEMAIL --path=site
 
 curl -L -o theme.zip https://github.com/sunnysunny77/wptheme/archive/refs/heads/main.zip
 
