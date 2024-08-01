@@ -91,8 +91,6 @@ npm run install-cert
 
 npm run edit-hosts
 
-curl -L -o theme.zip https://github.com/sunnysunny77/wptheme/archive/refs/heads/main.zip
-
 php composer.phar install 
 
 vendor/bin/wp core download --path=site
@@ -101,7 +99,7 @@ vendor/bin/wp config create --dbname=$DBNAME --dbuser=$DBUSER --dbpass=$DBPASS -
 \$_SERVER['HTTPS']='on';
 PHP
 
-vendor/bin/wp theme install theme.zip --activate --path=site 
+curl -L -o site/wp-content/themes/theme.zip https://github.com/sunnysunny77/wptheme/archive/refs/heads/main.zip
 
 fi
 
