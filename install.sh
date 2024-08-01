@@ -99,7 +99,9 @@ vendor/bin/wp config create --dbname=$DBNAME --dbuser=$DBUSER --dbpass=$DBPASS -
 \$_SERVER['HTTPS']='on';
 PHP
 
-curl -L -o site/wp-content/themes/theme.zip https://github.com/sunnysunny77/wptheme/archive/refs/heads/main.zip
+vendor/bin/wp db create --path=site
+
+curl -L -o theme.zip https://github.com/sunnysunny77/wptheme/archive/refs/heads/main.zip
 
 fi
 

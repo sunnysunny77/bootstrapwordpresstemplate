@@ -13,7 +13,7 @@
     <br>
     https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/installing.html
     <br>
-    create database and set up .env in project root
+    set up .env in project root
     <br>
     <br>
     For Debian, Ubuntu
