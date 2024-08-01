@@ -46,6 +46,7 @@
     "cross-env": "latest",
     "dotenv": "latest",
     "eslint": "latest",
+    "express": "latest",
     "fs": "latest",
     "globals": "latest",
     "hostile": "latest",
@@ -56,6 +57,7 @@
     "rollup-plugin-livereload": "latest",
     "rollup-plugin-sourcemaps": "latest",
     "run-script-os": "latest",
-    "sass": "latest"
+    "sass": "latest",
+    "vhost": "latest"
   }
 }
