@@ -2,7 +2,7 @@
 
 source $INIT_CWD/.env
 
-if [ ! -f $INIT_CWD/site/wp-config.php ] && [ ! -f $INIT_CWD/conf/ca.conf ] && [ ! -f $INIT_CWD/conf/csr.conf ] && [ ! -f $INIT_CWD/conf/cert.conf ] && [ ! -f $INIT_CWD/certs/ca.key ] && [ ! -f $INIT_CWD/certs/ca.crt ] && [ ! -f $INIT_CWD/certs/ca.srl ] && [ ! -f $INIT_CWD/certs/server.csr ] && [ ! -f $INIT_CWD/certs/server.crt ] && [ ! -f $INIT_CWD/certs/server.key ]; then 
+if [ ! -f $INIT_CWD/site/wp-config.php ]; then 
 
 php composer.phar install 
 
@@ -10,7 +10,6 @@ vendor/bin/wp core download --path=site
 
 vendor/bin/wp config create --dbname=$DBNAME --dbuser=$DBUSER --dbpass=$DBPASS --path=site --extra-php <<PHP
 \$_SERVER['HTTPS']='on';
-
 PHP
 
 vendor/bin/wp db create --path=site
@@ -20,6 +19,10 @@ vendor/bin/wp core install --url="$CN:3000" --title=$TITLE --admin_user=$ADMINUS
 curl -L -o theme.zip https://github.com/sunnysunny77/wptheme/archive/refs/heads/main.zip
 
 vendor/bin/wp theme install theme.zip --activate --path=site 
+
+fi
+
+if [ -f $INIT_CWD/site/wp-config.php ] && [ ! -f $INIT_CWD/conf/ca.conf ] && [ ! -f $INIT_CWD/conf/csr.conf ] && [ ! -f $INIT_CWD/conf/cert.conf ] && [ ! -f $INIT_CWD/certs/ca.key ] && [ ! -f $INIT_CWD/certs/ca.crt ] && [ ! -f $INIT_CWD/certs/ca.srl ] && [ ! -f $INIT_CWD/certs/server.csr ] && [ ! -f $INIT_CWD/certs/server.crt ] && [ ! -f $INIT_CWD/certs/server.key ]; then 
 
 echo "Installing certificates";
 
