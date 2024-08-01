@@ -11,7 +11,7 @@ app.use(vhost(`${process.env.CN}`, sub_domain));
 app.use(vhost("localhost",local_domian));
 app.use((req, res) => {
     req.pipe(http.request({
-        host: "127.0.0.1",
+        host: "localhost",
         port: "2998",
         path: req.url,
         method: req.method,

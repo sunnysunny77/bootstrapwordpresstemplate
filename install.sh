@@ -101,13 +101,9 @@ vendor/bin/wp config create --dbname=$DBNAME --dbuser=$DBUSER --dbpass=$DBPASS -
 \$_SERVER['HTTPS']='on';
 PHP
 
-vendor/bin/wp core install --url="https://$CN:3000" --title=$TITLE --admin_user=$ADMINUSER --admin_password=$ADMINPASS --admin_email=$ADMINEMAIL --path=site
+vendor/bin/wp core install --url="$CN:3000" --title=$TITLE --admin_user=$ADMINUSER --admin_password=$ADMINPASS --admin_email=$ADMINEMAIL --path=site
 
 vendor/bin/wp theme install theme.zip --activate --path=site 
-
-vendor/bin/wp config set siteurl "https://$CN:3000" --path=site
-
-vendor/bin/wp config set home "https://$CN:3000" --path=site
 
 fi
 
