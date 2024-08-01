@@ -15,6 +15,9 @@
     <br>
     https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/installing.html
     <br>
+    Make sure all the environment variable paths are set
+    <br>
+    <br>
     set up .env in project root
     <br>
     <br>
