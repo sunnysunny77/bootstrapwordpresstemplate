@@ -3,12 +3,14 @@ import commonjs from "@rollup/plugin-commonjs";
 import terser from "@rollup/plugin-terser";
 import livereload from "rollup-plugin-livereload";
 import fs from "fs";
+import dotenv from "dotenv";
+
 
 export default {
   input: "./js/index.js",
   output: [
     {
-      file: "./site/wp-content/themes/wptheme-main/assets/js/app.min.js",
+      file: `./site/wp-content/themes/${dotenv.config().parsed.THEMEDIR}/app.min.js`,
       format:  "iife",
       plugins: [terser()]
     }
@@ -17,7 +19,7 @@ export default {
     commonjs(),
     babel({ babelHelpers: "bundled" }),
     livereload({
-      watch: "./site/wp-content/themes/bsv3",
+      watch: "./site/wp-content/themes/",
       port: 2999,
       https: {
         key: fs.readFileSync("./certs/server.key"),
