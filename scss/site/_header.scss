@@ -1,0 +1,30 @@
+.navbar-toggler {
+    &.collapsed {
+        .slider_8-bar1,
+        .slider_8-bar3 {
+            transform: none;
+        }
+        .slider_8-bar2 {
+            opacity: 1;
+        }
+    }
+    .slider_8-bar1,
+    .slider_8-bar2,
+    .slider_8-bar3 {
+        width: 24px;
+        height: 3px;
+        background-color: $black;
+        margin: 4px 0;
+        transition: 0.4s;
+        border-radius: 1.5px;
+    }
+    .slider_8-bar1 {
+        transform: translate(0, 7px) rotate(-45deg);
+    }
+    .slider_8-bar2 {
+        opacity: 0;
+    }
+    .slider_8-bar3 {
+        transform: translate(0, -7px) rotate(45deg);
+    }
+}
