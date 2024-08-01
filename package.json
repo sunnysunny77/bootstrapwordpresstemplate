@@ -14,7 +14,7 @@
     "edit-hosts:win32": "powershell start-process -Verb runas powershell -ArgumentList '–ExecutionPolicy Bypass', '-noexit', 'powershell -File %INIT_CWD%\\win32.ps1'",
     "edit-hosts:default": "sudo node --env-file=.env edit-hosts.cjs",
     "https-server": "node --env-file=.env https-server.cjs",
-    "php-server": "php -S localhost:2998 -t site",
+    "php-server": "vendor/bin/wp server --host=127.0.0.1 --port=2998 --path=site",
     "open-server": "node --env-file=.env open.js",
     "watch-css": "sass --embed-sources ./scss/app.scss:./site/wp-content/themes/wptheme-main/assets/css/app.min.css --style compressed -w",
     "build-css": "sass --embed-sources ./scss/app.scss:./site/wp-content/themes/wptheme-main/assets/css/app.min.css --style compressed",
