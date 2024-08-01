@@ -5,12 +5,11 @@ import livereload from "rollup-plugin-livereload";
 import fs from "fs";
 import dotenv from "dotenv";
 
-
 export default {
   input: "./js/index.js",
   output: [
     {
-      file: `./site/wp-content/themes/${dotenv.config().parsed.THEMEDIR}/app.min.js`,
+      file: `./site/wp-content/themes/${dotenv.config().parsed.THEMEDIRJS}/app.min.js`,
       format:  "iife",
       plugins: [terser()]
     }
