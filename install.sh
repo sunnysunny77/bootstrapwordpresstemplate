@@ -91,6 +91,8 @@ npm run install-cert
 
 npm run edit-hosts
 
+curl -L -o theme.zip https://github.com/sunnysunny77/wptheme/archive/refs/heads/main.zip
+
 php composer.phar install 
 
 vendor/bin/wp core download --path=site
@@ -101,7 +103,9 @@ define( 'WP_HOME', 'https://$CN:3000' );
 define( 'WP_SITEURL', 'https://$CN:3000' );
 PHP
 
-vendor/bin/wp theme install bsv3.zip --activate --path=site 
+vendor/bin/wp core install --url=$CN --title=$TITLE --admin_user=$ADMINUSER --admin_password=$ADMINPASS --admin_email=$ADMINEMAIL --path=site
+
+vendor/bin/wp theme install theme.zip --activate --path=site 
 
 fi
 

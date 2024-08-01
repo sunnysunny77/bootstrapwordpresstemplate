@@ -6,7 +6,7 @@ export default {
   input: "./js/index.js",
   output: [
     {
-      file: "./site/wp-content/themes/bsv3/assets/js/app.min.js",
+      file: "./site/wp-content/themes/wptheme-main/assets/js/app.min.js",
       format:  "iife",
       plugins: [terser()]
     }

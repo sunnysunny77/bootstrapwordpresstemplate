@@ -13,3 +13,4 @@ conf/csr.conf
 conf/ca.conf
 site
 win32.ps1
+theme.zip
