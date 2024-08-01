@@ -101,8 +101,6 @@ vendor/bin/wp config create --dbname=$DBNAME --dbuser=$DBUSER --dbpass=$DBPASS -
 \$_SERVER['HTTPS']='on';
 PHP
 
-vendor/bin/wp core install --url="$CN:3000" --title=$TITLE --admin_user=$ADMINUSER --admin_password=$ADMINPASS --admin_email=$ADMINEMAIL --path=site
-
 vendor/bin/wp theme install theme.zip --activate --path=site 
 
 fi
