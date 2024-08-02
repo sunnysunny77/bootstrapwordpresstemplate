@@ -2,7 +2,6 @@
 
 source $INIT_CWD/.env
 
-
 php composer.phar install && 
 
 vendor/bin/wp core download --path=site &&
