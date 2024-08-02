@@ -1,10 +1,12 @@
 #!/bin/bash
 
+set -e
+
 source $INIT_CWD/.env
 
-php composer.phar install && 
+php composer.phar install
 
-vendor/bin/wp core download --path=site &&
+vendor/bin/wp core download --path=site
 
 vendor/bin/wp config create --dbname=$DBNAME --dbuser=$DBUSER --dbpass=$DBPASS --path=site --extra-php <<PHP
 
@@ -12,11 +14,11 @@ vendor/bin/wp config create --dbname=$DBNAME --dbuser=$DBUSER --dbpass=$DBPASS -
 
 PHP
  
-vendor/bin/wp db create --path=site && 
+vendor/bin/wp db create --path=site
 
-vendor/bin/wp core install --url="$CN:3000" --title=$TITLE --admin_user=$ADMINUSER --admin_password=$ADMINPASS --admin_email=$ADMINEMAIL --path=site && 
+vendor/bin/wp core install --url="$CN:3000" --title=$TITLE --admin_user=$ADMINUSER --admin_password=$ADMINPASS --admin_email=$ADMINEMAIL --path=site
 
-curl -L -o theme.zip https://github.com/sunnysunny77/wptheme/archive/refs/heads/main.zip && 
+curl -L -o theme.zip https://github.com/sunnysunny77/wptheme/archive/refs/heads/main.zip
 
 vendor/bin/wp theme install theme.zip --activate --path=site 
 
