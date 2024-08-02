@@ -4,27 +4,17 @@ set -e
 
 source $INIT_CWD/.env
 
-php composer.phar install
+if [ ! -f $INIT_CWD/conf/ca.conf ] && \
+   [ ! -f $INIT_CWD/conf/csr.conf ] && \
+   [ ! -f $INIT_CWD/conf/cert.conf ] && \
+   [ ! -f $INIT_CWD/certs/ca.key ] && \
+   [ ! -f $INIT_CWD/certs/ca.crt ] && \
+   [ ! -f $INIT_CWD/certs/ca.srl ] && \
+   [ ! -f $INIT_CWD/certs/server.csr ] && \
+   [ ! -f $INIT_CWD/certs/server.crt ] && \
+   [ ! -f $INIT_CWD/certs/server.key ]; then
 
-vendor/bin/wp core download --path=site
-
-vendor/bin/wp config create --dbname=$DBNAME --dbuser=$DBUSER --dbpass=$DBPASS --path=site --extra-php <<PHP
-
-\$_SERVER['HTTPS']='on';
-
-PHP
- 
-vendor/bin/wp db create --path=site
-
-vendor/bin/wp core install --url="$CN:3000" --title=$TITLE --admin_user=$ADMINUSER --admin_password=$ADMINPASS --admin_email=$ADMINEMAIL --path=site
-
-curl -L -o theme.zip https://github.com/sunnysunny77/wptheme/archive/refs/heads/main.zip
-
-vendor/bin/wp theme install theme.zip --activate --path=site 
-
-if [ -f $INIT_CWD/site/wp-config.php ] && [ ! -f $INIT_CWD/conf/ca.conf ] && [ ! -f $INIT_CWD/conf/csr.conf ] && [ ! -f $INIT_CWD/conf/cert.conf ] && [ ! -f $INIT_CWD/certs/ca.key ] && [ ! -f $INIT_CWD/certs/ca.crt ] && [ ! -f $INIT_CWD/certs/ca.srl ] && [ ! -f $INIT_CWD/certs/server.csr ] && [ ! -f $INIT_CWD/certs/server.crt ] && [ ! -f $INIT_CWD/certs/server.key ]; then 
-
-echo "Installing certificates";
+echo "Create certificates"
 
 echo -e "[ req ]
 prompt = no\n\
@@ -107,9 +97,17 @@ openssl x509 \
 -sha256 \
 -extfile $INIT_CWD/conf/cert.conf
 
-npm run install-cert
+echo "Trust certificates"
 
-npm run edit-hosts
+npm run trust-cert
+
+echo "Trust hosts"
+
+npm run trust-hosts
+
+else
+
+echo "Certificate detected, deleted all files in conf and certs folders";
 
 fi
 
