@@ -1,7 +1,7 @@
 {
   "name": "bootstrapwordpresstemplate",
   "type": "module",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "bootstrapwordpresstemplate",
   "main": "./js/index.js",
   "scripts": {
@@ -25,8 +25,8 @@
     "build-js": "rollup -c ./rollup.config-build-production.mjs --sourcemap",
     "production-js": "rollup -c ./rollup.config-build-production.mjs",
     "watch": "cross-env-shell bash watch.sh",
-    "build": "npm-run-all --parallel build-css build-js",
-    "production": "npm-run-all --parallel production-css production-js"
+    "build": "cross-env-shell bash build.sh",
+    "production": "cross-env-shell bash production.sh"
   },
   "repository": {
     "type": "git",
@@ -53,7 +53,6 @@
     "hostile": "latest",
     "http": "latest",
     "https": "latest",
-    "npm-run-all": "latest",
     "rollup": "latest",
     "rollup-plugin-livereload": "latest",
     "rollup-plugin-sourcemaps": "latest",
