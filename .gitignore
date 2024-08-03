@@ -12,5 +12,5 @@
 /conf/csr.conf
 /conf/ca.conf
 /site
-/win-trust.ps1
+/trust-hosts.ps1
 /theme.zip
