@@ -21,7 +21,7 @@
     "watch-css": "cross-env-shell bash sass-watch.sh",
     "build-css": "cross-env-shell bash sass-build.sh",
     "production-css": "cross-env-shell bash sass-production.sh",
-    "watch-js": "rollup -c ./rollup.config-watch.mjs -w --sourcemap",
+    "watch-js": "rollup -c ./rollup.config-watch.mjs -w --sourcemap --no-watch.clearScreen",
     "build-js": "rollup -c ./rollup.config-build-production.mjs --sourcemap",
     "production-js": "rollup -c ./rollup.config-build-production.mjs",
     "watch": "cross-env-shell bash watch.sh",
