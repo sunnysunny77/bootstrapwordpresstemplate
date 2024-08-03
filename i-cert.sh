@@ -110,10 +110,3 @@ else
 echo "Certificate detected, deleted all files in conf and certs folders";
 
 fi
-
-
-
-
-
-
-
