@@ -29,6 +29,8 @@
     npm i "install app"
     <br>
     <br>
+    <br>
+    <br>
     <h1>
         Individual commands
     </h1>
