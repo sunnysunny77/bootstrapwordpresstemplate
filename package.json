@@ -5,7 +5,7 @@
   "description": "bootstrapwordpresstemplate",
   "main": "./js/index.js",
   "scripts": {
-    "install": "npm-run-all i-wp i-cert",
+    "install": "cross-env-shell bash install.sh",
     "i-wp": "cross-env-shell bash i-wp.sh",
     "i-cert": "cross-env-shell bash i-cert.sh",
     "trust-cert": "run-script-os",
