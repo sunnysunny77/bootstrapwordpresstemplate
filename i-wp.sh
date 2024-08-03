@@ -18,6 +18,6 @@ vendor/bin/wp db create --path=site
 
 vendor/bin/wp core install --url="$CN:3000" --title=$TITLE --admin_user=$ADMINUSER --admin_password=$ADMINPASS --admin_email=$ADMINEMAIL --path=site
 
-curl -L -o theme.zip https://github.com/sunnysunny77/wptheme/archive/refs/heads/main.zip
+curl -L -o wptheme.zip https://github.com/sunnysunny77/wptheme/archive/refs/heads/main.zip
 
-vendor/bin/wp theme install theme.zip --activate --path=site 
+vendor/bin/wp theme install wptheme.zip --activate --path=site 
