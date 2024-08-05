@@ -20,4 +20,6 @@ vendor/bin/wp core install --url="$CN:3000" --title=$TITLE --admin_user=$ADMINUS
 
 curl -L -o wptheme.zip https://github.com/sunnysunny77/wptheme/archive/refs/heads/main.zip
 
-vendor/bin/wp theme install wptheme.zip --activate --path=site 
+vendor/bin/wp theme install wptheme.zip --activate --path=site
+
+vendor/bin/wp plugin install advanced-custom-fields --activate --path=site
