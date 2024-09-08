@@ -11,11 +11,13 @@ import "../node_modules/bootstrap/js/dist/collapse";
 //import "../node_modules/bootstrap/js/dist/tab";
 //import "../node_modules/bootstrap/js/dist/toast";
 //import "../node_modules/bootstrap/js/dist/tooltip";
+//import  AOS from "../node_modules/aos/dist/aos.js";
 import "../node_modules/@fortawesome/fontawesome-free/js/all.min.js";
 import { events } from "./utillites.js";
 import { contact_form } from "./contact_form.js";
 
 events(window, "load", () => {
 
+   //AOS.init({once: true}); 
    contact_form();
 });

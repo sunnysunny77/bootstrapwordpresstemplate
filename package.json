@@ -42,6 +42,7 @@
     "@rollup/plugin-babel": "latest",
     "@rollup/plugin-commonjs": "latest",
     "@rollup/plugin-terser": "latest",
+    "aos": "latest",
     "bootstrap": "^5.3.3",
     "cross-env": "latest",
     "dotenv": "latest",
