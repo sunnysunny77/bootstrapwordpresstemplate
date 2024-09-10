@@ -21,6 +21,7 @@ app.use((req, res) => {
         res.writeHead(resp.statusCode,resp.headers);
         resp.pipe(res);
     }));
+    res.header("Service-Worker-Allowed", "/");
 });
 
 https.createServer({
