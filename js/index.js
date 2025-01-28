@@ -11,7 +11,8 @@ import "../node_modules/bootstrap/js/dist/collapse";
 //import "../node_modules/bootstrap/js/dist/tab";
 //import "../node_modules/bootstrap/js/dist/toast";
 //import "../node_modules/bootstrap/js/dist/tooltip";
-import  AOS from "../node_modules/aos/dist/aos.js";
+
+import  AOS from "aos";
 import { events } from "./utillites.js";
 import { contact_form } from "./contact_form.js";
 
