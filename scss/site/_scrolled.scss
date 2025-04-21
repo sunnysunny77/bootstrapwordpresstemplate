@@ -1,8 +1,13 @@
 .scrolled {
     &.right {
+        animation: scrolled-right 0.67s forwards;
+    }
+}
+
+.scrolled-init {
+    &.right {
         opacity: 0;
         transform: translateX(-22%);
-        animation: scrolled-right 0.67s forwards;
     }
 }
 
