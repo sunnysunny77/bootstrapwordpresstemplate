@@ -1,0 +1,21 @@
+.scrolled {
+    &.right {
+        opacity: 0;
+        transform: translateX(-22%);
+        animation: scrolled-right 0.67s forwards;
+    }
+}
+
+@keyframes scrolled-right {
+    0% {
+        opacity: 0;
+        transform: translateX(-22%);
+    }
+    50% {
+        opacity: 0.67;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
