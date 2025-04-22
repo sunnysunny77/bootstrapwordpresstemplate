@@ -13,18 +13,22 @@ const overlay = () => {
   });
 };
 
-const scrolled = (obj, options) => {
-
-  const observer = new IntersectionObserver((entries, observer)=>{
-
-    entries.filter(index=> index.isIntersecting).forEach(index => {
-
-      index.target.classList.add("scrolled");
-      observer.unobserve(index.target);
-    });
-  },options);
+const scrolled = (obj, bool) => {
 
   obj.forEach(index => {
+
+    const options = {
+      rootMargin: bool ? `${index.offsetTop}px` : "0px",
+    };
+
+    const observer = new IntersectionObserver((entries, observer)=>{
+
+      entries.filter(index=> index.isIntersecting).forEach(index => {
+
+        index.target.classList.add("scrolled");
+        observer.unobserve(index.target);
+      });
+    }, options);
 
     observer.observe(index);
   });
@@ -32,6 +36,6 @@ const scrolled = (obj, options) => {
 
 export const init = () => {
 
-  scrolled(document.querySelectorAll(".scrolled-init"), {rootMargin: "0px 0px 0px 0px"});
+  scrolled(document.querySelectorAll(".scrolled-init"), false);
   overlay();
 };

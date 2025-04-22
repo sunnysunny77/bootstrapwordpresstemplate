@@ -10,12 +10,12 @@ import "bootstrap/js/dist/collapse";
 // import "bootstrap/js/dist/toast";
 // import "bootstrap/js/dist/tooltip";
 
-import { init } from "./init.js";
+//import { init } from "./init.js";
 import { events } from "./utillites.js";
 import { contact_form } from "./contact_form.js";
 
 events(window, "load", () => {
 
-   init();
+  // init();
    contact_form();
 });
