@@ -13,7 +13,7 @@ import "bootstrap/js/dist/collapse";
 // import "bootstrap/js/dist/tooltip";
 import $ from "jquery";
 
-$(window).on("elementor/frontend/init", function() {
+$(document).ready(function () {
 
   init();
   contact_form();
