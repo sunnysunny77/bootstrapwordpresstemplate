@@ -15,17 +15,6 @@ echo "Installing system-wide certificate..."
 sudo cp "${certfile}" /usr/local/share/ca-certificates/"${CN}.crt"
 sudo update-ca-certificates
 
-if grep -iq "${CN}" /etc/ssl/certs/ca-certificates.crt; then
-    echo "System-wide certificate installed: ${CN}"
-else
-    echo "System-wide certificate may not be installed properly."
-fi
-
 echo "Installing user NSS DB certificate (~/.pki/nssdb)..."
 mkdir -p "${HOME}/.pki/nssdb"
 certutil -A -n "${certname}" -t "TCu,Cu,Tu" -i "${certfile}" -d sql:"${HOME}/.pki/nssdb"
-
-echo "Listing certificates in user NSS DB:"
-certutil -L -d sql:"${HOME}/.pki/nssdb" | grep -i "${CN}" || echo "Certificate not found in NSS DB"
-
-echo "Done. Firefox/Chromium will trust ${CN} Root CA after restart."
