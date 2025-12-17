@@ -1,0 +1,23 @@
+footer {
+    background-color: $alpha;
+    position: relative;
+    z-index: 999;
+    .footer-right {
+        color: $alpha;
+    }
+    .widget {
+        p {
+            margin: 0;
+        }
+    }
+    #footer-nav .menu-item {
+        margin: 0 1rem;
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+        li {
+            list-style-type: none;
+        }
+    }
+}

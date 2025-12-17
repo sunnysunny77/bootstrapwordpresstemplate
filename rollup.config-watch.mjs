@@ -12,9 +12,13 @@ export default {
     {
       file: `./site/wp-content/themes/${dotenv.config().parsed.THEMEDIRJS}/app.min.js`,
       format:  "iife",
+      globals: {
+        jquery: "jQuery",
+      },
       plugins: [terser()]
     }
   ],
+  external: ["jquery"],
   plugins: [
     babel({ babelHelpers: "bundled" }),
     commonjs({
