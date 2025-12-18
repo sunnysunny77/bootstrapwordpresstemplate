@@ -11,6 +11,14 @@
 /conf/cert.conf
 /conf/csr.conf
 /conf/ca.conf
-/site
+/site/*
+!/site/wp-content/
+site/wp-content/*
+!/site/wp-content/themes/
+site/wp-content/themes/*
+!/site/wp-content/themes/wptheme-main/
+!/site/wp-content/themes/wptheme-main/**
+!/site/wp-content/uploads/
+!/site/wp-content/uploads/**
 /trust-hosts.ps1
 /wptheme.zip
