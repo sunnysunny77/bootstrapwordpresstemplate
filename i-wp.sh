@@ -8,14 +8,10 @@ php composer.phar install
 
 vendor/bin/wp core download --path=site || true
 
-vendor/bin/wp config create \
-  --dbname="${DBNAME}" \
-  --dbuser="${DBUSER}" \
-  --dbpass="${DBPASS}" \
-  --path=site \
-  --extra-php <<PHP
+(vendor/bin/wp config create ... --extra-php <<PHP
 \$_SERVER['HTTPS'] = 'on';
 PHP
+) || true
 
 vendor/bin/wp db create --path=site || true
 
