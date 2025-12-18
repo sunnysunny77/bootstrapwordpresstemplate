@@ -1,5 +1,5 @@
 {
     "require": {
-        "wp-cli/wp-cli-bundle": "^2.11.0"
+        "wp-cli/wp-cli-bundle": "*"
     }
 }
